@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+* {
+      margin: 0;
+    }
+   
+    body {
+      font-family: sans-serif;
+    }
+    .Section1 {
+      
+      height: 80px;
+    }
+    .Section1 img {
+        float: left;
+      margin-left: 200px;
+      
+    }
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 30%;
+  
+  
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #012D62;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+li a:hover {
+  background-color:white;
+  color: red;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown a {
+    color: white;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 30px;
+  background-color: inherit;
+  font-family: inherit;
+  margin-top: 15px;
+}
+.dropdown a {
+  text-decoration: none;
+  color: #012D62;
+}
+.dropdown a:hover {
+    color: red;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: white;
+  color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.Section2 {
+  background-color: #0070cc;
+    
+    height: 200px;
+}
+.Section2 h2 {
+    color: white;
+    margin-left: 300px;
+   padding-top: 50px;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  margin-left: 29%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  margin-top: 20px;
+  width: 35%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 5%;
+  border-top-right-radius:8px ;
+  border-bottom-right-radius:8px  ;
+  padding: 10px;
+  background: rgb(2, 196, 2);
+  color: white;
+  font-size: 17px;
+  margin-top: 20px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.example button:hover {
+  background: green;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.Section3 {
+    height: 600px;
+}
+.Section3 .box {
+    border: 1px solid rgb(235, 235, 235);
+    width: 260px;
+    margin-left: 300px;
+    margin-top: 10px;
+}
+ .Section3 .box p {
+    text-align: center;
+}
+.Section3 .box h3 {
+    color: rgb(0, 206, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+
+.Section3 .box2 {
+    border: 1px solid rgb(235, 235, 235);
+    width: 260px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+ .Section3 .box2 p {
+    text-align: center;
+}
+.Section3 .box2 h3 {
+    color: rgb(0, 206, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.Section3 .box3 {
+    border: 1px solid rgb(235, 235, 235);
+    width: 260px;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+ .Section3 .box3 p {
+    text-align: center;
+}
+
+.Section3 .box3 h3 {
+    color: rgb(0, 206, 0);
+    text-align: center;
+    margin-top: 20px;
+}
+.Section3 button {
+    border: none;
+   margin-left: 50px;
+   color: white;
+   font-weight: bold;
+   background-color: #B73439;
+   padding: 10px 50px;
+   border-radius: 4px;
+   margin-bottom: 10px;
+}
+
+.Section3 button:hover {
+   background-color: #752124;
+ 
+}
+
+.Section3 button a {
+  text-decoration: none;
+    color: white;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+.section3 .box a:hover {
+    box-shadow: 0 5px 15px rgba(224, 72, 72, 0.3);
+}
+.Section3 .layout{
+    display: inline-block;
+}
+
+.Section6 {
+  background-color: #23292F;
+  height: auto;
+}
+.Section6 .Section6-box1 {
+  padding-top: 20px;
+  margin-left:400px;
+  
+}
+.Section6 .Section6-box1 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6  a {
+  
+  color: rgb(175, 175, 175);
+  font-size: 12px;
+  text-decoration: none;
+  
+}
+.Section6  p {
+  padding-bottom: 2px;
+}
+.Section6  a:hover {
+  text-decoration: underline;
+}
+
+.Section6 .Section6-box2 {
+ margin-left: 100px;
+}
+.Section6 .Section6-box2 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6 .layout {display: inline-block;}
+
+.Section6 hr {
+  border: none;
+    height: 0.5px;
+   width: 55%;
+   margin-top: 70px;
+   margin-left: 24%;
+    background-color: rgb(110, 110, 110); /* Modern Browsers */
+}
+.Section6 .copyright .line1 {
+  color: gray;
+  margin-top: 20px;
+  margin-left: 40%;
+  font-size: 10px;
+}
+.Section6 .copyright .line2 {
+  color: gray;
+  margin-left: 46%;
+ margin-top: 5px;
+  font-size: 10px;
+}
+.Section6 .copyright .line3 {
+  color: gray;
+  margin-top: 10px;
+  margin-left: 35%;
+  font-size: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="Section1">
+      <img src="../logo1.png" width="130px" height="70px">
+    
+        <ul>
+          <li><a class="active" href="../Project.html">Home</a></li>
+    
+          <div class="dropdown">
+            <button class="dropbtn"><a href="../Cars Main/Cars.html">Cars</a> 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="../Car Files and Images/audi.html">Audi</a>
+                <a href="../Car Files and Images/toyota.html">Toyota</a>
+                <a href="../Car Files and Images/suzuki.html">Suzuki</a>
+                <a href="../Car Files and Images/kia.html">Kia</a>
+                <a href="../Car Files and Images/mercedes.html">Mercedes</a>
+                <a href="../Car Files and Images/mg.html">Mg</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">Bikes</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="SUZUKI-Bike.html">Suzuki</a>
+              <a href="kawasaki.html">Kawasaki</a>
+              <a href="honda-bike.html">Honda</a>
+              <a href="Yamaha.html">Yamaha</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">AutoStore</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="../AutoStore/corolla.html">Toyota Corolla</a>
+              <a href="../AutoStore/fortuner.html">Toyota Fortuner</a>
+              <a href="../AutoStore/vitz.html">Toyota Vitz</a>
+            </div>
+          </div> 
+          <li><a href="../AboutUs.html">About Us</a></li>
+          
+        </ul> 
+        </div>
+        <div class="Section2">
+            <h2>Find New Bikes in Pakistan</h2>
+            <form class="example" action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+              </form>
+        </div>
+
+        <div class="Section3">
+    
+           <div class="layout">
+            <div class="box"> 
+                <a href="">
+                <img src="./Gallery-2/CB 150F.png" width="260px" height="200px">
+                <p><b>Year</b><br>2023</p>
+                <p><b>Model<br></b>CB 150F</p>
+                <p><b>Transmission<br></b>5-Speed Constant Mesh</p>
+                <p><b>Engine Displacement<br></b>149cc</p>
+                <h3>PKR 354,000</h3><br>
+                <button>Book Now</button>
+            </a>
+            </div>
+        </div>
+        <div class="layout">
+            <div class="box2"> 
+                <a href="">
+                <img src="./Gallery-2/CG 125.png" width="250px" height="200px">
+                <p><b>Year<br></b>2023</p>
+                <p><b>Model<br></b>CG 125</p>
+                <p><b>Transmission<br></b>4-speed Constant Mesh</p>
+                <p><b>Engine Displacement<br></b>125cc</p>
+                <h3>PKR 186,000</h3><br>
+                <button>Book Now</button>
+            </a>
+            </div>
+            </div>
+
+            <div class="layout">
+                <div class="box2"> 
+                    <a href="">
+                    <img src="./Gallery-2/W800.png" width="250px" height="200px">
+                    <p><b>Year<br></b>2023</p>
+                    <p><b>Model<br></b>W800</p>
+                    <p><b>Transmission<br></b>5-speed return shift</p>
+                    <p><b>Engine Displacement<br></b>773cc</p>
+                    <h3>USD 10,000</h3><br>
+                    <button>Book Now</button>
+                </a>
+                </div>
+                </div>
+
+                
+
+            <div class="layout">
+                <div class="box3"> 
+                    <a href="">
+                    <img src="./Gallery-2/CD 70.png" width="250px" height="200px">
+                    <p><b>Year<br></b>2023</p>
+                    <p><b>Model<br></b>CD 70</p>
+                    <p><b>Transmission<br></b>4-Speed Constant Mesh</p>
+                    <p><b>Engine Displacement<br></b>72cc</p>
+                    <h3>PKR 122,000</h3><br>
+                    <button>Book Now</button>
+                </a>
+                </div>
+                </div>
+
+                <div class="layout">
+                    <div class="box"> 
+                        <a href="">
+                        <img src="./Gallery-2/NINJA H2R.jpg" width="250px" height="200px">
+                        <p><b>Year</b><br>2023</p>
+                        <p><b>Model<br></b>NINJA H2R</p>
+                        <p><b>Transmission<br></b>6-speed manual</p>
+                        <p><b>Engine Displacement<br></b>998cc</p>
+                        <h3>USD 57,000</h3><br>
+                        <button>Book Now</button>
+                    </a>
+                    </div>
+
+                    <div class="layout">
+                        <div class="box3"> 
+                            <a href="">
+                            <img src="./Gallery-2/Yamaha2.jpg" width="230px" height="170px" style="margin-top: 10px;">
+                            <p><b>Year<br></b>2023</p>
+                            <p><b>Model<br></b> YBR 125</p>
+                            <p><b>Transmission<br></b>5-Speed Constant Mesh</p>
+                            <p><b>Engine<br></b>124CC</p>
+                            <h3>PKR 323,000</h3><br>
+                            <button>Book Now</button>
+                        </a>
+                        </div>
+
+                    
+      
+        </div>
+
+        <div class="Section6">
+  
+          <div class="layout">
+          <div class="Section6-box1"> 
+          <h3>Cars By Make</h3>
+          <a href="./Car Files and Images/kia.html"><p>Kia Cars</p></a>
+          <a href="./Car Files and Images/audi.html"><p>Audi Cars</p></a>
+          <a href="./Car Files and Images/mercedes.html"><p>Mercedes Cars</p></a>
+          <a href=""><p>Honda Cars</p></a>
+          <a href="./Car Files and Images/suzuki.html"><p>Suzuki Cars</p></a>
+          <a href="./Car Files and Images/mg.html"><p>MG Cars</p></a>
+          </div>
+          </div>
+          
+          <div class="layout">
+          <div class="Section6-box2"> 
+            <h3>Explore AutoStop</h3>
+            <a href=""><p>New Cars</p></a>
+            <a href=""><p>New Bikes</p></a>
+            <a href=""><p>Used Cars</p></a>
+            <a href=""><p>Used Bikes</p></a>
+            <a href=""><p>AutoParts & Accessories</p></a>
+            <a href=""><p>Cool Rides</p></a>
+            </div>
+            </div>
+          
+            <div class="layout">
+              <div class="Section6-box2"> 
+                <h3> AutoStop</h3>
+                <a href="AboutUs.html"><p>About AutoStop</p></a>
+                <a href=""><p>Our Products</p></a>
+                <a href=""><p>FAQs</p></a>
+                <a href=""><p>Advertise With Us</p></a>
+                <a href=""><p>Refunds & Returns</p></a>
+                <a href=""><p>Contact Us</p></a>
+                </div>
+                </div>
+          
+                <div class="layout">
+                  <div class="Section6-box2"> 
+                    <h3>Cars By Category</h3>
+                    <a href="./Categorized Car Files/Family.html"><p>Family Cars</p></a>
+                    <a href="./Categorized Car Files/SUV.html"><p>SUV Cars</p></a>
+                    <a href="./Categorized Car Files/Small.html"><p>Small Cars</p></a>
+                    <a href=""><p>Low Priced Cars</p></a>
+                    <a href=""><p>4x4 Cars</p></a>
+                    <a href=""><p>1000cc Cars</p></a>
+                    </div>
+                    </div>
+          
+                    <hr>
+          
+                    <div class="copyright">
+                      <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+                      <p class="line2">Terms of Service |  Privacy Policy</p>
+                      <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
+                    </div>
+          
+          </div>
+</body>
+</html>

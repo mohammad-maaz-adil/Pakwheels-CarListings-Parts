@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Form validation in HTML & CSS | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Section1 img {
+        float: left;
+      margin-left: 200px;
+      
+    }
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 30%;
+  
+  
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #012D62;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+li a:hover {
+  background-color:white;
+  color: red;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown a {
+    color: white;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 30px;
+  background-color: inherit;
+  font-family: inherit;
+  margin-top: 15px;
+}
+.dropdown a {
+  text-decoration: none;
+  color: #012D62;
+}
+.dropdown a:hover {
+    color: red;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: white;
+  color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.Section2 {
+    background-color:#0070cc;
+    height: 110px;
+    margin-top: 10px;
+}
+.Section2 h2 {
+    color: white;
+    margin-left: 300px;
+   padding-top: 35px;
+}
+
+
+.container {
+  width: 380px;
+  margin-left: 35%;
+  padding: 40px 30px 50px 30px;
+  margin-top: 3%;
+  background: rgb(255, 253, 253);
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+.container header {
+  font-size: 35px;
+  font-weight: 600;
+}
+.container form {
+  margin-top: 30px;
+}
+form .field {
+  margin-bottom: 20px;
+}
+form .input-field {
+  height: 50px;
+  width: 100%;
+  position: relative;
+}
+.input-field input {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  padding: 0 5px;
+  font-size: 18px;
+  background: none;
+  caret-color: #5372F0;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  transition: all 0.2s ease;
+}
+
+form input::placeholder{
+  color: #bfbfbf;
+  font-size: 17px;
+}
+.invalid input {
+  border-color: #d93025;
+}
+.input-field .show-hide {
+  position: absolute;
+  right: 13px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #919191;
+  cursor: pointer;
+  padding: 3px;
+}
+.field .error {
+  display: flex;
+  align-items: center;
+  margin-top: 6px;
+  color: #d93025;
+  font-size: 13px;
+  display: none;
+}
+.invalid .error {
+  display: flex;
+}
+.error .error-icon {
+  margin-right: 6px;
+  font-size: 15px;
+}
+.create-password .error {
+  align-items: flex-start;
+}
+.create-password .error-icon {
+  margin-top: 4px;
+}
+.button {
+  margin: 25px 0 6px;
+  margin-bottom: 30px;
+}
+.button input {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #4070f4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button input:hover {
+  background-color: #0e4bf1;
+}
+
+form .sign-txt{
+  text-align: left;
+
+}
+.sign-txt a{
+  color: #5372F0;
+  text-decoration: none;
+}
+.sign-txt a:hover{
+  text-decoration: underline;
+}
+
+.Section6 {
+  background-color: #23292F;
+  height: auto;
+ margin-top: 10px;
+}
+.Section6 .Section6-box1 {
+  padding-top: 20px;
+  margin-left:400px;
+  
+}
+.Section6 .Section6-box1 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6  a {
+  
+  color: rgb(175, 175, 175);
+  font-size: 12px;
+  text-decoration: none;
+  
+}
+.Section6  p {
+  padding-bottom: 2px;
+}
+.Section6  a:hover {
+  text-decoration: underline;
+}
+
+.Section6 .Section6-box2 {
+ margin-left: 100px;
+}
+.Section6 .Section6-box2 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6 .layout {display: inline-block;}
+
+.Section6 hr {
+  border: none;
+    height: 0.5px;
+   width: 55%;
+   margin-top: 70px;
+   margin-left: 24%;
+    background-color: rgb(110, 110, 110); /* Modern Browsers */
+}
+.Section6 .copyright .line1 {
+  color: gray;
+  margin-top: 20px;
+  margin-left: 40%;
+  font-size: 10px;
+}
+.Section6 .copyright .line2 {
+  color: gray;
+  margin-left: 46%;
+ margin-top: 5px;
+  font-size: 10px;
+}
+.Section6 .copyright .line3 {
+  color: gray;
+  margin-top: 10px;
+  margin-left: 35%;
+  font-size: 10px;
+}
+.input input {
+    height: 50px;
+    width: 100%;
+  position: relative;
+}
+
+  </style>
+</head>
+<body>
+  
+    <div class="Section1">
+      <img src="../logo1.png" width="130px" height="70px">
+    
+        <ul>
+          <li><a class="active" href="../Project.html">Home</a></li>
+    
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">Cars</a> 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="../Car Files and Images/audi.html">Audi</a>
+              <a href="../Car Files and Images/toyota.html">Toyota</a>
+              <a href="../Car Files and Images/suzuki.html">Suzuki</a>
+              <a href="../Car Files and Images/kia.html">Kia</a>
+              <a href="../Car Files and Images/mercedes.html">Mercedes</a>
+              <a href="../Car Files and Images/mg.html">Mg</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">Bikes</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="../Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
+              <a href="../Bike Files and Images/kawasaki.html">Kawasaki</a>
+              <a href="../Bike Files and Images/honda-bike.html">Honda</a>
+              <a href="../Bike Files and Images/Yamaha.html">Yamaha</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">AutoStore</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="./corolla.html">Toyota Corolla</a>
+              <a href="./fortuner.html">Toyota Fortuner</a>
+              <a href="./vitz.html">Toyota Vitz</a>
+            </div>
+          </div> 
+          <li><a href="../About Us">About Us</a></li>
+          <li><a href="../Gallery.html">Gallery</a></li>
+        </ul> 
+       
+        </div>
+
+        <div class="Section2">
+            <h2>Sell Your Ride Quickly on AutoStop</h2>
+            
+        </div>
+      
+
+    <div class="section3">
+
+      <div class="container">
+        <header>Signup Form</header>
+        <form action="https://www.codinglabweb.com/">
+          <div class="field email-field">
+            <div class="input-field">
+              <input type="email" placeholder="Enter your email" class="email" />
+            </div>
+            <span class="error email-error">
+              <i class="bx bx-error-circle error-icon"></i>
+              <p class="error-text">Please enter a valid email</p>
+            </span>
+          </div>
+          <div class="field create-password">
+            <div class="input-field">
+              <input
+                type="password"
+                placeholder="Create password"
+                class="password"
+              />
+              <i class="bx bx-hide show-hide"></i>
+            </div>
+            <span class="error password-error">
+              <i class="bx bx-error-circle error-icon"></i>
+              <p class="error-text">
+                Please enter atleast 8 charatcer with number, symbol, small and
+                capital letter.
+              </p>
+            </span>
+          </div>
+          <div class="field confirm-password">
+            <div class="input-field">
+              <input
+                type="password"
+                placeholder="Confirm password"
+                class="cPassword"
+              />
+              <i class="bx bx-hide show-hide"></i>
+            </div>
+            <span class="error cPassword-error">
+              <i class="bx bx-error-circle error-icon"></i>
+              <p class="error-text">Password don't match</p>
+            </span>
+          </div>
+          <div class="input-field button">
+            <input type="submit" value="Submit Now" />
+          </div>
+        </form>
+        <div class="sign-txt">Already a member? <a href="Login.html">Login now</a></div>
+  </div>
+      </div>
+  
+
+
+  </div>
+  <div class="Section6">
+  
+    <div class="layout">
+    <div class="Section6-box1"> 
+    <h3>Cars By Make</h3>
+    <a href="./Car Files and Images/kia.html"><p>Kia Cars</p></a>
+    <a href="./Car Files and Images/audi.html"><p>Audi Cars</p></a>
+    <a href="./Car Files and Images/mercedes.html"><p>Mercedes Cars</p></a>
+    <a href=""><p>Honda Cars</p></a>
+    <a href="./Car Files and Images/suzuki.html"><p>Suzuki Cars</p></a>
+    <a href="./Car Files and Images/mg.html"><p>MG Cars</p></a>
+    </div>
+    </div>
+    
+    <div class="layout">
+    <div class="Section6-box2"> 
+      <h3>Explore AutoStop</h3>
+      <a href=""><p>New Cars</p></a>
+      <a href=""><p>New Bikes</p></a>
+      <a href=""><p>Used Cars</p></a>
+      <a href=""><p>Used Bikes</p></a>
+      <a href=""><p>AutoParts & Accessories</p></a>
+      <a href=""><p>Cool Rides</p></a>
+      </div>
+      </div>
+    
+      <div class="layout">
+        <div class="Section6-box2"> 
+          <h3> AutoStop</h3>
+          <a href="AboutUs.html"><p>About AutoStop</p></a>
+          <a href=""><p>Our Products</p></a>
+          <a href=""><p>FAQs</p></a>
+          <a href=""><p>Advertise With Us</p></a>
+          <a href=""><p>Refunds & Returns</p></a>
+          <a href=""><p>Contact Us</p></a>
+          </div>
+          </div>
+    
+          <div class="layout">
+            <div class="Section6-box2"> 
+              <h3>Cars By Category</h3>
+              <a href="./Categorized Car Files/Family.html"><p>Family Cars</p></a>
+              <a href="./Categorized Car Files/SUV.html"><p>SUV Cars</p></a>
+              <a href="./Categorized Car Files/Small.html"><p>Small Cars</p></a>
+              <a href=""><p>Low Priced Cars</p></a>
+              <a href=""><p>4x4 Cars</p></a>
+              <a href=""><p>1000cc Cars</p></a>
+              </div>
+              </div>
+    
+              <hr>
+    
+              <div class="copyright">
+                <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+                <p class="line2">Terms of Service |  Privacy Policy</p>
+                <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
+              </div>
+    
+    </div>
+    
+
+    <script>
+      const form = document.querySelector("form"),
+    emailField = form.querySelector(".email-field"),
+    emailInput = emailField.querySelector(".email"),
+    passField = form.querySelector(".create-password"),
+    passInput = passField.querySelector(".password"),
+    cPassField = form.querySelector(".confirm-password"),
+    cPassInput = cPassField.querySelector(".cPassword");
+  
+  // Email Validtion
+  function checkEmail() {
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!emailInput.value.match(emailPattern)) {
+      return emailField.classList.add("invalid"); //adding invalid class if email value do not mathced with email pattern
+    }
+    emailField.classList.remove("invalid"); //removing invalid class if email value matched with emaiPattern
+  }
+  
+  // Hide and show password
+  const eyeIcons = document.querySelectorAll(".show-hide");
+  
+  eyeIcons.forEach((eyeIcon) => {
+    eyeIcon.addEventListener("click", () => {
+      const pInput = eyeIcon.parentElement.querySelector("input"); //getting parent element of eye icon and selecting the password input
+      if (pInput.type === "password") {
+        eyeIcon.classList.replace("bx-hide", "bx-show");
+        return (pInput.type = "text");
+      }
+      eyeIcon.classList.replace("bx-show", "bx-hide");
+      pInput.type = "password";
+    });
+  });
+  
+  // Password Validation
+  function createPass() {
+    const passPattern =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+  
+    if (!passInput.value.match(passPattern)) {
+      return passField.classList.add("invalid"); //adding invalid class if password input value do not match with passPattern
+    }
+    passField.classList.remove("invalid"); //removing invalid class if password input value matched with passPattern
+  }
+  
+  // Confirm Password Validtion
+  function confirmPass() {
+    if (passInput.value !== cPassInput.value || cPassInput.value === "") {
+      return cPassField.classList.add("invalid");
+    }
+    cPassField.classList.remove("invalid");
+  }
+  
+  // Calling Funtion on Form Sumbit
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); //preventing form submitting
+    checkEmail();
+    createPass();
+    confirmPass();
+  
+    //calling function on key up
+    emailInput.addEventListener("keyup", checkEmail);
+    passInput.addEventListener("keyup", createPass);
+    cPassInput.addEventListener("keyup", confirmPass);
+  
+    if (
+      !emailField.classList.contains("invalid") &&
+      !passField.classList.contains("invalid") &&
+      !cPassField.classList.contains("invalid")
+    ) {
+      location.href = form.getAttribute("action");
+    }
+  });
+  
+     </script>
+
+</body>
+</html>

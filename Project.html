@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>AUTOSTOP - Buy &amp; Sell Cars, Bikes &amp; Autoparts - Find Car Prices, News &amp; Reviews</title>
+  <link rel="icon" href="autostop.ico">
+
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .Section1 {
+      background-color: #0070cc;
+      height: 400px;
+    }
+
+    .Section1 img {
+      float: left;
+      margin-left: 12.5%;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      margin-left: 30%;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 30px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+
+    li a:hover {
+      background-color: white;
+      color: red;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 30px;
+      background-color: inherit;
+      font-family: inherit;
+      margin-top: 15px;
+    }
+
+    .dropdown a {
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .dropdown a:hover,
+    .dropbtn:hover a,
+    .dropbtn:hover i {
+      color: red;
+    }
+
+    .dropbtn:hover {
+      background-color: #0070cc;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .Section1-body {
+      color: white;
+      margin-top: 5%;
+      text-align: center;
+    }
+
+    .Section1-body h3 {
+      font-size: 35px;
+    }
+
+    form.example input[type=text] {
+      padding: 10px;
+      font-size: 17px;
+      border: 1px solid grey;
+      float: left;
+      margin-left: 29%;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      margin-top: 20px;
+      width: 35%;
+      background: #f1f1f1;
+    }
+
+    form.example button {
+      float: left;
+      width: 5%;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      padding: 10px;
+      background: rgb(2, 196, 2);
+      color: white;
+      font-size: 17px;
+      margin-top: 20px;
+      border: 1px solid grey;
+      border-left: none;
+      cursor: pointer;
+    }
+
+    form.example button:hover {
+      background: green;
+    }
+
+    .Section2 {
+      padding: 50px 0px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .field-set {
+      display: flex;
+      text-align: center;
+      justify-content: space-between;
+      width: 55%;
+      padding: 30px;
+      border: 0.5px solid rgb(196, 190, 190);
+      border-radius: 2px;
+    }
+
+    .field-set h3 {
+      font-size: 20px;
+      color: #012D62;
+      padding: 15px 0px;
+    }
+
+    .Section2 fieldset legend {
+      font-size: 22px;
+      font-weight: bold;
+      color: rgb(59, 59, 59);
+    }
+
+    .Section2-left {
+      display: flex;
+      flex-direction: column;
+      text-align: start;
+      gap: 12px;
+      width: 50%;
+    }
+
+    .Section2-left p {
+      font-size: 13px;
+    }
+
+    .Section2-left .ad {
+      display: flex;
+      gap: 10px;
+    }
+
+    .Section2-left button,
+    .Section2-right button {
+      margin-top: 15px;
+      padding: 15px 30px;
+      border: none;
+      background-color: #B73439;
+      border-radius: 3px;
+      width: 50%;
+    }
+
+    .Section2-right button {
+      background-color: #518ECB;
+    }
+
+    .Section2-left button:hover {
+      background-color: #752124;
+    }
+
+    .Section2-right button:hover {
+      background-color: #3a6692
+    }
+
+    .Section2-left a,
+    .Section2-right a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .wrapper {
+      position: relative;
+      width: 100px;
+      height: 180px;
+    }
+
+    .line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: #ccc;
+      z-index: -1;
+    }
+
+    .Section3 {
+      background-color: #F2F3F3;
+      padding: 60px 0;
+    }
+
+    .Section3 h3 {
+      margin-bottom: 20px;
+      margin-left: 20%;
+      font-size: 20px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 100px;
+      padding: 20px;
+    }
+
+    .box p {
+      padding: 10px;
+      text-align: center;
+      color: #012D62;
+    }
+
+    .carbymake {
+      width: 80px;
+      height: 80px;
+      background-color: white;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    .carbymake img {
+      transition: transform .3s ease;
+    }
+
+    .carbymake img:hover {
+      transform: scale(1.2);
+    }
+
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      color: #518ECB;
+    }
+
+    .Section4 {
+      background-color: white;
+    }
+
+    .Tile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgb(199, 199, 199);
+      width: 110px;
+      padding: 10px 20px;
+      border-radius: 15px;
+    }
+
+    .Tile:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .Tile img {
+      height: 70px;
+      width: 70px;
+    }
+
+    .box1 {
+      gap: 36px;
+    }
+
+    .Tile2 {
+      background-color: white;
+      padding: 20px 40px;
+    }
+
+    .Section6 {
+      background-color: #23292F;
+      padding: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .Section6-box1 {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .Section6 .Section6-box1 h3 {
+      color: white;
+      font-size: 16px;
+      padding: 8px 0px;
+    }
+
+    .Section6 .Section6-box1 a {
+      color: rgb(175, 175, 175);
+      font-size: 12px;
+      padding: 5px 0px;
+    }
+
+    .Section6 a:hover {
+      text-decoration: underline;
+    }
+
+    .Section6 .layout {
+      display: flex;
+      justify-content: center;
+      gap: 100px;
+    }
+
+    .Section6 hr {
+      border: none;
+      height: 0.5px;
+      width: 55%;
+      background-color: rgb(110, 110, 110);
+    }
+
+    .Section6 p {
+      color: gray;
+      font-size: 12px;
+      text-align: center;
+      padding: 5px;
+    }
+
+    .popup {
+      background-color: #ffffff;
+      width: 400px;
+      padding: 60px 40px;
+      position: fixed;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      display: none;
+      border-radius: 8px;
+    }
+
+    .popup span {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .popup button {
+      font-size: 30px;
+      color: #ffffff;
+      background: #03549a;
+      border-radius: 100%;
+      width: 40px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .popup p {
+      font-size: 14px;
+      line-height: 25px;
+      padding: 30px 0px 0px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="Section1">
+      <a href="Project.html">
+        <img src="logo1.png" width="130px" height="70px">
+      </a>
+
+      <ul>
+        <li><a class="active" href="Project.html">Home</a></li>
+
+        <div class="dropdown">
+          <button class="dropbtn"><a href="./Cars Main/Cars.html">Cars</a>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="./Car Files and Images/audi.html">Audi</a>
+            <a href="./Car Files and Images/toyota.html">Toyota</a>
+            <a href="./Car Files and Images/suzuki.html">Suzuki</a>
+            <a href="./Car Files and Images/kia.html">Kia</a>
+            <a href="./Car Files and Images/mercedes.html">Mercedes</a>
+            <a href="./Car Files and Images/mg.html">Mg</a>
+
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn"><a href="">Bikes</a>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="./Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
+            <a href="./Bike Files and Images/kawasaki.html">Kawasaki</a>
+            <a href="./Bike Files and Images/honda-bike.html">Honda</a>
+            <a href="./Bike Files and Images/Yamaha.html">Yamaha</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn"><a href="./AutoStore/Main.html">AutoStore</a>
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="./AutoStore/corolla.html">Toyota Corolla</a>
+            <a href="./AutoStore/fortuner.html">Toyota Fortuner</a>
+            <a href="./AutoStore/vitz.html">Toyota Vitz</a>
+          </div>
+
+        </div>
+        <li><a href="AboutUs.html">About Us</a></li>
+
+      </ul>
+      <div class="Section1-body">
+        <h3>Find New Rides in Pakistan</h3>
+        <p>With thousands of them , Book one right now!</p>
+      </div>
+
+      <form class="example" action="">
+        <input type="text" placeholder="Search.." name="search">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
+
+    <div class="popup">
+      <span>
+        <h3>Disclaimer</h3>
+        <button id="close">&times;</button>
+      </span>
+      <p>
+        Autostop is still in the development phase and certain features may not be fully functional.Your patience is
+        appreciated!
+      </p>
+    </div>
+
+    <!--Script-->
+    <script type="text/javascript">
+      window.addEventListener("load", function () {
+        setTimeout(
+          function open(event) {
+            document.querySelector(".popup").style.display = "block";
+          },
+          3000
+        )
+      });
+      document.querySelector("#close").addEventListener("click", function () {
+        document.querySelector(".popup").style.display = "none";
+      });
+    </script>
+
+    <div class="Section2">
+      <fieldset class="field-set">
+        <legend>Sell Your Ride on AutoStop and Get the Best Price</legend>
+
+        <div class="Section2-left">
+          <h3>Sell It Myself!</h3>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>Post your Ad for Free in 3 Easy Steps</p>
+          </div>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>Get Genuine offers from Verified Buyers</p>
+          </div>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>Sell your car Fast at the Best Price</p>
+          </div>
+
+          <button><a href="./Login and Signup Form/Login.html">Post Your Ad</a></button>
+        </div>
+
+        <div class="wrapper">
+          <div class="line"></div>
+        </div>
+
+        <div class="Section2-left Section2-right">
+          <h3>Sell It For Me</h3>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>Dedicated Sales Expert to Sell your Car</p>
+          </div>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>We Bargain for you and share the Best Offer</p>
+          </div>
+
+          <div class="ad">
+            <img src="./Car Logos/check.png" width="18px" height="18px">
+            <p>We ensure Safe & Secure Transaction</p>
+          </div>
+
+          <button><a href="./Login and Signup Form/Signup.html">Register Your Car</a></button>
+        </div>
+
+      </fieldset>
+    </div>
+
+    <div class="Section3">
+      <h3>New Cars By Make</h3>
+
+      <div class="box">
+
+        <a href="./Car Files and Images/suzuki.html">
+          <div class="carbymake">
+            <img src="./Car Logos/Suzuki.png" width="40px" height="40px" alt="Suzuki Logo">
+          </div>
+          <p>Suzuki</p>
+        </a>
+
+        <a href="./Car Files and Images/toyota.html">
+          <div class="carbymake">
+            <img src="./Car Logos/toyota.png" width="50px" height="40px">
+          </div>
+          <p>Toyota</p>
+        </a>
+
+        <a href="./Car Files and Images/kia.html">
+          <div class="carbymake">
+            <img src="./Car Logos/kia.png" width="50px" height="35px">
+          </div>
+          <p>Kia</p>
+        </a>
+
+        <a href="./Car Files and Images/mg.html">
+          <div class="carbymake">
+            <img src="./Car Logos/mg.png" width="80px" height="60px">
+          </div>
+          <p>MG</p>
+        </a>
+
+        <a href="">
+          <div class="carbymake">
+            <img src="./Car Logos/hyundai.jpeg" width="55px" height="40px">
+          </div>
+          <p>Hyundai</p>
+        </a>
+      </div>
+
+      <div class="box">
+
+        <a href="./Car Files and Images/mercedes.html">
+          <div class="carbymake">
+            <img src="./Car Logos/mercedes.jpg" width="50px" height="50px">
+          </div>
+          <p>Mercedes</p>
+        </a>
+
+        <a href="">
+          <div class="carbymake">
+            <img src="./Car Logos/honda.jpg" width="50px" height="35px">
+          </div>
+          <p>Honda</p>
+        </a>
+
+        <a href="">
+          <div class="carbymake">
+            <img src="./Car Logos/proton.jpg" width="55px" height="40px">
+          </div>
+          <p>Proton</p>
+        </a>
+
+        <a href="./Car Files and Images/audi.html">
+          <div class="carbymake">
+            <img src="./Car Logos/Audi.png" width="50px" height="30px">
+          </div>
+          <p>Audi</p>
+        </a>
+
+        <a href="">
+          <div class="carbymake">
+            <img src="./Car Logos/tesla.png" width="50px" height="30px">
+          </div>
+          <p>Tesla</p>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="Section3 Section4">
+      <h3>Browse Cars By Catergory</h3>
+
+      <div class="box">
+
+        <a href="./Categorized Car Files/Family.html">
+          <div class="Tile">
+            <img src="./Car Tile Logos/familycar.png">
+            <p>Family</p>
+          </div>
+        </a>
+
+        <a href="./Categorized Car Files/SUV.html">
+          <div class="Tile">
+            <img src="./Car Tile Logos/bigcar.png">
+            <p>Suvs</p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile">
+            <img src="./Car Tile Logos/jeep.png">
+            <p>Jeeps</p>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="box">
+
+        <a href="./Categorized Car Files/Small.html">
+          <div class="Tile">
+            <img src="./Car Tile Logos/smallcar.png">
+            <p>Small </p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile">
+            <img src="./Car Tile Logos/luxurycar.png">
+            <p>Luxury </p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile">
+            <img src="./Car Tile Logos/sportcar.png">
+            <p>Sports</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <div class="Section3 Section5">
+      <h3>Accessories By Category</h3>
+
+      <div class="box box1">
+
+        <a href="">
+          <div class="Tile Tile2">
+            <img src="./Accessory Images/Light.jpg">
+            <p>LED Lights</p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile Tile2">
+            <img src="./Accessory Images/speaker.jpg">
+            <p>Speaker</p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile Tile2">
+            <img src="./Accessory Images/Tire.jpg">
+            <p>Tyres</p>
+          </div>
+        </a>
+
+        <a href="">
+          <div class="Tile Tile2">
+            <img src="./Accessory Images/seat1.png">
+            <p>Seat</p>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+
+    <div class="Section6">
+
+      <div class="layout">
+
+        <div class="Section6-box1">
+          <h3>Cars By Make</h3>
+
+          <a href="./Car Files and Images/kia.html">Kia Cars</a>
+
+          <a href="./Car Files and Images/audi.html">Audi Cars</a>
+
+          <a href="./Car Files and Images/mercedes.html">Mercedes Cars</a>
+
+          <a href="">Honda Cars</a>
+
+          <a href="./Car Files and Images/suzuki.html">Suzuki Cars</a>
+
+          <a href="./Car Files and Images/mg.html">MG Cars</a>
+        </div>
+
+        <div class="Section6-box1">
+          <h3>Explore AutoStop</h3>
+
+          <a href="./Cars Main/Cars.html">New Cars</a>
+
+          <a href="">New Bikes</a>
+
+          <a href="./Under Development Pages/Used Cars.html.html">Used Cars</a>
+
+          <a href="./Under Development Pages/Used Bikes.html">Used Bikes</a>
+
+          <a href="./AutoStore/Main.html">AutoParts & Accessories</a>
+
+          <a href="./Under Development Pages/Cool Rides.html">Cool Rides</a>
+        </div>
+
+        <div class="Section6-box1">
+          <h3> AutoStop</h3>
+
+          <a href="AboutUs.html">About AutoStop</a>
+
+          <a href="./Under Development Pages/Our Products.html">Our Products</a>
+
+          <a href="./Under Development Pages/FAQ.html">FAQs</a>
+
+          <a href="./Under Development Pages/Advertise with Us.html">Advertise With Us</a>
+
+          <a href="./Under Development Pages/Refunds and Returns.html">Refunds & Returns</a>
+
+          <a href="./Under Development Pages/Contact Us.html">Contact Us</a>
+        </div>
+
+        <div class="Section6-box1">
+          <h3>Cars By Category</h3>
+
+          <a href="./Categorized Car Files/Family.html">Family Cars</a>
+
+          <a href="./Categorized Car Files/SUV.html">SUV Cars</a>
+
+          <a href="./Categorized Car Files/Small.html">Small Cars</a>
+
+          <a href="">Low Priced Cars</a>
+          <a href="">4x4 Cars</a>
+          <a href="">1000cc Cars</a>
+        </div>
+
+      </div>
+      <hr>
+      <p>Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.<br>Terms of Service | Privacy
+        Policy<br>Reproduction of material from any AutoStop pages without permission is strictly prohibited</p>
+
+    </div>
+  </div>
+</body>
+
+</html>

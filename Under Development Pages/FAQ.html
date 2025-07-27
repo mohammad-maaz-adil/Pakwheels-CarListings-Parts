@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+  <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.Section1 img {
+        float: left;
+      margin-left: 200px;
+      
+    }
+
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  margin-left: 30%;
+  
+  
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #012D62;
+  text-align: center;
+  padding: 14px 30px;
+  text-decoration: none;
+  margin-top: 15px;
+}
+
+li a:hover {
+  background-color:white;
+  color: red;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+.dropdown a {
+    color: white;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 30px;
+  background-color: inherit;
+  font-family: inherit;
+  margin-top: 15px;
+}
+.dropdown a {
+  text-decoration: none;
+  color: #012D62;
+}
+.dropdown a:hover {
+    color: red;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: white;
+  color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.Section2 {
+    background-color:#0070cc;
+    height: 110px;
+    margin-top: 10px;
+}
+.Section2 h2 {
+    color: white;
+    margin-left: 300px;
+   padding-top: 35px;
+}
+
+.Section3 i {
+   margin-left: 38%;
+   margin-top: 15%;
+
+}
+
+
+.Section6 {
+  background-color: #23292F;
+  height: auto;
+  margin-top: 600px;
+}
+.Section6 .Section6-box1 {
+  padding-top: 20px;
+  margin-left:400px;
+  
+}
+.Section6 .Section6-box1 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6  a {
+  
+  color: rgb(175, 175, 175);
+  font-size: 12px;
+  text-decoration: none;
+  
+}
+.Section6  p {
+  padding-bottom: 2px;
+}
+.Section6  a:hover {
+  text-decoration: underline;
+}
+
+.Section6 .Section6-box2 {
+ margin-left: 100px;
+}
+.Section6 .Section6-box2 h3 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 7px;
+}
+
+.Section6 .layout {display: inline-block;}
+
+.Section6 hr {
+  border: none;
+    height: 0.5px;
+   width: 55%;
+   margin-top: 70px;
+   margin-left: 24%;
+    background-color: rgb(110, 110, 110); 
+}
+.Section6 .copyright .line1 {
+  color: gray;
+  margin-top: 20px;
+  margin-left: 40%;
+  font-size: 10px;
+}
+.Section6 .copyright .line2 {
+  color: gray;
+  margin-left: 46%;
+ margin-top: 5px;
+  font-size: 10px;
+}
+.Section6 .copyright .line3 {
+  color: gray;
+  margin-top: 10px;
+  margin-left: 35%;
+  font-size: 10px;
+}
+
+  </style>
+
+</head>
+<body>
+    <div class="Section1">
+      <img src="../logo1.png" width="130px" height="70px">
+    
+        <ul>
+          <li><a class="active" href="../Project.html">Home</a></li>
+    
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">Cars</a> 
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="../Car Files and Images/audi.html">Audi</a>
+              <a href="../Car Files and Images/toyota.html">Toyota</a>
+              <a href="../Car Files and Images/suzuki.html">Suzuki</a>
+              <a href="../Car Files and Images/kia.html">Kia</a>
+              <a href="../Car Files and Images/mercedes.html">Mercedes</a>
+              <a href="../Car Files and Images/mg.html">Mg</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="">Bikes</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="../Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
+              <a href="../Bike Files and Images/kawasaki.html">Kawasaki</a>
+              <a href="../Bike Files and Images/honda-bike.html">Honda</a>
+              <a href="../Bike Files and Images/Yamaha.html">Yamaha</a>
+            </div>
+          </div> 
+          <div class="dropdown">
+            <button class="dropbtn"><a href="../AutoStore/Main.html">AutoStore</a>
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="./corolla.html">Toyota Corolla</a>
+              <a href="./fortuner.html">Toyota Fortuner</a>
+              <a href="./vitz.html">Toyota Vitz</a>
+            </div>
+          </div> 
+          <li><a href="../AboutUs.html">About Us</a></li>
+          
+        </ul> 
+       
+        </div>
+
+        <div class="Section2">
+            <h2>Frequently Asked Questions</h2>
+            
+        </div>
+      
+        <div class="Section3">
+            <i class="fa-solid fa-triangle-exclamation fa-2x"><p style="font-size: 20px; float: right; margin-top: 10px; margin-left: 10px;">This page is under development</p> </i>
+            
+        </div>
+       
+
+        <div class="Section6">
+  
+          <div class="layout">
+          <div class="Section6-box1"> 
+          <h3>Cars By Make</h3>
+          <a href="./Car Files and Images/kia.html"><p>Kia Cars</p></a>
+          <a href="./Car Files and Images/audi.html"><p>Audi Cars</p></a>
+          <a href="./Car Files and Images/mercedes.html"><p>Mercedes Cars</p></a>
+          <a href=""><p>Honda Cars</p></a>
+          <a href="./Car Files and Images/suzuki.html"><p>Suzuki Cars</p></a>
+          <a href="./Car Files and Images/mg.html"><p>MG Cars</p></a>
+          </div>
+          </div>
+          
+          <div class="layout">
+          <div class="Section6-box2"> 
+            <h3>Explore AutoStop</h3>
+            <a href="/Cars Main/Cars.html"><p>New Cars</p></a>
+            <a href=""><p>New Bikes</p></a>
+            <a href="Used Cars.html"><p>Used Cars</p></a>
+            <a href="Used Bikes.html"><p>Used Bikes</p></a>
+            <a href="/AutoStore/Main.html"><p>AutoParts & Accessories</p></a>
+            <a href="Cool Rides.html"><p>Cool Rides</p></a>
+            </div>
+            </div>
+          
+            <div class="layout">
+              <div class="Section6-box2"> 
+                <h3> AutoStop</h3>
+                <a href="/AboutUs.html"><p>About AutoStop</p></a>
+                <a href="Our Products.html"><p>Our Products</p></a>
+                <a href="FAQ.html"><p>FAQs</p></a>
+                <a href="Advertise with Us.html"><p>Advertise With Us</p></a>
+                <a href="Refunds and Returns.html"><p>Refunds & Returns</p></a>
+                <a href="Contact Us.html"><p>Contact Us</p></a>
+                </div>
+                </div>
+          
+                <div class="layout">
+                  <div class="Section6-box2"> 
+                    <h3>Cars By Category</h3>
+                    <a href="/Categorized Car Files/Family.html"><p>Family Cars</p></a>
+                    <a href="/Categorized Car Files/SUV.html"><p>SUV Cars</p></a>
+                    <a href="/Categorized Car Files/Small.html"><p>Small Cars</p></a>
+                    <a href=""><p>Low Priced Cars</p></a>
+                    <a href=""><p>4x4 Cars</p></a>
+                    <a href=""><p>1000cc Cars</p></a>
+                    </div>
+                    </div>
+          
+                    <hr>
+          
+                    <div class="copyright">
+                      <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+                      <p class="line2">Terms of Service |  Privacy Policy</p>
+                      <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
+                    </div>
+          
+          </div>
+        
+
+
+</body>
+</html>
