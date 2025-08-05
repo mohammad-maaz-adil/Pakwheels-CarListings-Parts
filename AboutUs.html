@@ -2,472 +2,1020 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>About Us - AutoStop</title>
     <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-* {
-      margin: 0;
-    }
-   
-    body {
-      font-family: sans-serif;
-    }
-    .Section1 {
-      
-      height: 80px;
-    }
-    .Section1 img {
-        float: left;
-      margin-left: 200px;
-      
-    }
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    padding-top: 80px;
+}
 
-    ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  margin-left: 30%;
-  
-  
+.container {
+    width: 100%;
+}
+
+/* Header Section - Styled like reference with blue theme */
+.Section1 {
+    background-color: #0070cc;
+    min-height: 80px;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1002;
+    width: 100%;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.logo {
+    flex-shrink: 0;
+    z-index: 1003;
+}
+
+.Section1 img {
+    display: block;
+}
+
+.nav-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Hamburger Menu Button */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1003;
+    position: relative;
+    border: none;
+    background: none;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 2px 0;
+    transition: 0.3s ease;
+    border-radius: 2px;
+    display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Navigation Styles - Styled like reference */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 li {
-  float: left;
+    display: inline-block;
 }
 
 li a {
-  display: block;
-  color: #012D62;
-  text-align: center;
-  padding: 14px 30px;
-  text-decoration: none;
-  margin-top: 15px;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
 li a:hover {
-  background-color:white;
-  color: red;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-.dropdown a {
-    color: white;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 30px;
-  background-color: inherit;
-  font-family: inherit;
-  margin-top: 15px;
-}
-.dropdown a {
-  text-decoration: none;
-  color: #012D62;
-}
-.dropdown a:hover {
+    background-color: white;
     color: red;
 }
 
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: white;
-  color: red;
+/* Active link styling */
+li a.active {
+    background-color: #0070cc;
+    color: #fbfcfd;
+    border-radius: 4px;
+}
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 20px;
+    background-color: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown .dropbtn span {
+    text-decoration: none;
+    color: white;
+}
+
+.dropdown .dropbtn:hover span,
+.dropdown .dropbtn:hover i,
+.dropdown:hover .dropbtn {
+    background-color: white;
+    color: red;
+}
+
+.dropdown .dropbtn:hover {
+    background-color: white;
 }
 
 .dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1001;
+    top: 100%;
+    left: 0;
 }
 
 .dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+    background-color: #ddd;
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
-}
-.Section2 {
-    background-color: #012D62;
-    height: 200px;
-    margin-top: 10px;
+    display: block;
 }
 
-.Section2 .Section2-body {
-    margin-left: 300px;
-    padding-top: 40px;
-    color: white;
-}
-.Section2 h3 {
-    padding-bottom: 10px;
-    font-size: 20px;
-}
-form.example input[type=text] {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  margin-left: 29%;
-  margin-top: 20px;
-  width: 35%;
-  background: #f1f1f1;
+/* Mobile Navigation Overlay */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
 }
 
-form.example button {
-  float: left;
-  width: 5%;
-  padding: 10px;
-  background: rgb(2, 196, 2);
-  color: white;
-  font-size: 17px;
-  margin-top: 20px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
+.nav-overlay.active {
+    display: block;
 }
 
-form.example button:hover {
-  background: green;
-}
+/* About Us Content Section */
 .Section2 {
     background-color: #F2F3F3;
-    height: 1000px;
+    padding: 50px 20px;
+    min-height: auto;
 }
+
+.about-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .Section2 h2 {
-    margin-left: 300px;
-    padding-top: 50px;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: clamp(24px, 4vw, 32px);
+    text-align: center;
 }
+
 .Section2 img {
-    width: 60%;
-    height: 50%;
-    margin-left: 20%;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-.Section2  p {
-    width: 59%;
-    margin-left: 20%;
-    margin-top: 20px;
+
+.Section2 p {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
     font-size: 15px;
     color: rgb(88, 88, 88);
+    line-height: 1.8;
+    text-align: justify;
+    padding: 0 10px;
 }
+
+/* Team Section - Enhanced for Mobile */
 .Section3 {
-    height: auto;
+    padding: 60px 20px;
+    background-color: white;
 }
+
+.team-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .Section3 h2 {
-    margin-left: 300px;
-    padding-top: 50px;
-}
-.Section3 .box1,.box2,.box3,.box4 {
-    border: 1px solid rgb(185, 185, 185);
-    width: 203px;
-    padding-bottom: 60px;
-    
-   
-   
-}
-.Section3 .box1 {
-    margin-left: 300px;
+    color: #333;
+    margin-bottom: 50px;
+    font-size: clamp(24px, 4vw, 32px);
+    text-align: center;
 }
 
-.Section3 img {
-   
-    margin-right: 20px;
-    
-    height: 240px;
-}
-h
-.Section3 .box2 img{
-    margin:0;
-    
-    height: 240px;
-}
-.Section3 .box3 img{
-    margin:0;
-    
-    height: 240px;
-}
-.Section3 .layout {
-    display: inline-block;
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
     margin-top: 40px;
-    margin-right: 20px;
 }
 
-.Section3 h4 {
-    font-size: 12px;
-    color: rgb(107, 107, 107);
-    padding-left: 5px;
-    font-weight: bold;
+/* Enhanced Team Member Cards */
+.team-member {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(185, 185, 185, 0.3);
+    position: relative;
 }
-.Section3 h3 {
-    color: #012D62;
-    font-size: 13px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 5px;
+
+.team-member::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0070cc, #518ECB);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
-.Section3  p {
+
+.team-member:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.team-member:hover::before {
+    opacity: 1;
+}
+
+.team-member-image {
+    position: relative;
+    overflow: hidden;
+    height: 280px;
+}
+
+.team-member img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover img {
+    transform: scale(1.05);
+}
+
+.team-member-info {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.team-member h3 {
+    color: #0070cc;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+}
+
+.team-member h4 {
+    font-size: 14px;
+    color: #518ECB;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.team-member p {
     color: rgb(92, 92, 92);
-    margin-top: 10px;
-    font-size: 13px;
-    padding-left: 5px;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
 }
 
+/* Footer Section */
 .Section6 {
-  background-color: #23292F;
-  height: auto;
-  margin-top: 10px;
-}
-.Section6 .Section6-box1 {
-  padding-top: 20px;
-  margin-left:400px;
-  
-}
-.Section6 .Section6-box1 h3 {
-  color: white;
-  font-size: 15px;
-  margin-bottom: 7px;
+    background-color: #23292F;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
-.Section6  a {
-  
-  color: rgb(175, 175, 175);
-  font-size: 12px;
-  text-decoration: none;
-  
-  
-}
-.Section6  p {
-  padding-bottom: 2px;
-}
-.Section6  a:hover {
-  text-decoration: underline;
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.Section6 .Section6-box2 {
- margin-left: 100px;
-}
-.Section6 .Section6-box2 h3 {
-  color: white;
-  font-size: 15px;
-  margin-bottom: 7px;
+.footer-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: clamp(30px, 5vw, 100px);
+    width: 100%;
+    margin-bottom: 40px;
 }
 
-.Section6 .layout {display: inline-block;}
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
 
-.Section6 hr {
-  border: none;
+.footer-column h3 {
+    color: white;
+    font-size: 16px;
+    padding: 8px 0px;
+    text-align: center;
+}
+
+.footer-column a {
+    color: rgb(175, 175, 175);
+    font-size: 12px;
+    text-decoration: none;
+    display: block;
+    padding: 5px 0px;
+    text-align: center;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
+.footer-divider {
+    border: none;
     height: 0.5px;
-   width: 55%;
-   margin-top: 70px;
-   margin-left: 24%;
-    background-color: rgb(110, 110, 110); /* Modern Browsers */
-}
-.Section6 .copyright .line1 {
-  color: gray;
-  margin-top: 20px;
-  margin-left: 40%;
-  font-size: 10px;
-}
-.Section6 .copyright .line2 {
-  color: gray;
-  margin-left: 46%;
- margin-top: 5px;
-  font-size: 10px;
-}
-.Section6 .copyright .line3 {
-  color: gray;
-  margin-top: 10px;
-  margin-left: 35%;
-  font-size: 10px;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgb(110, 110, 110);
+    margin: 0 auto; /* Add this to center the divider */
 }
 
+.copyright {
+    text-align: center;
+    color: gray;
+    font-size: 12px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
 
+.copyright p {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 968px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .Section1 {
+        min-height: 70px;
+    }
+
+    .header-nav {
+        height: 70px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo {
+        align-self: center;
+        margin-bottom: 10px;
+    }
+
+    .hamburger {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    .nav-container {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 112, 204, 0.98);
+        backdrop-filter: blur(10px);
+        transition: left 0.3s ease;
+        z-index: 1000;
+        padding-top: 80px;
+        justify-content: flex-start;
+    }
+
+    .nav-container.active {
+        left: 0;
+    }
+
+    ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        align-items: flex-start;
+        background: none;
+        border: none;
+    }
+
+    li {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    li a {
+        padding: 15px 30px;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0;
+        margin: 0;
+        transition: all 0.3s ease;
+        text-align: left;
+        display: block;
+    }
+
+    li a:hover,
+    li a.active {
+        background-color: white;
+        color: #0070cc;
+        transform: translateX(5px);
+    }
+
+    .dropdown {
+        width: 100%;
+        margin-bottom: 2px;
+    }
+
+    .dropdown .dropbtn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 15px 30px;
+        font-size: 18px;
+        margin: 0;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .dropdown .dropbtn:hover {
+        background-color: white;
+        color: #0070cc;
+        transform: translateX(5px);
+    }
+
+    .dropdown .dropbtn span {
+        color: inherit;
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.1);
+        min-width: auto;
+        margin: 0;
+        border-radius: 0;
+        padding: 0;
+    }
+
+    .dropdown-content a {
+        padding: 12px 50px;
+        font-size: 16px;
+        color: white;
+        border-radius: 0;
+        margin: 0;
+        text-align: left;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown-content a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        transform: translateX(5px);
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+
+    /* Enhanced Mobile Team Grid */
+    .team-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 0 10px;
+    }
+
+    .team-member {
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .team-member-image {
+        height: 250px;
+    }
+
+    .team-member-info {
+        padding: 20px 15px;
+    }
+
+    .team-member h3 {
+        font-size: 18px;
+    }
+
+    .team-member h4 {
+        font-size: 13px;
+    }
+
+    .team-member p {
+        font-size: 13px;
+    }
+
+    .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-column {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .Section1 {
+        min-height: 60px;
+        padding: 0 15px;
+    }
+
+    .header-nav {
+        height: 60px;
+        padding: 5px 0;
+    }
+
+    .Section1 img {
+        width: 90px;
+        height: 45px;
+    }
+
+    .hamburger {
+        width: 35px;
+        height: 35px;
+        padding: 6px;
+        right: 15px;
+    }
+
+    .hamburger span {
+        width: 20px;
+        height: 2px;
+    }
+
+    .nav-container {
+        padding-top: 70px;
+    }
+
+    .Section2 {
+        padding: 40px 15px;
+    }
+
+    .Section2 p {
+        padding: 0 5px;
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .Section3 {
+        padding: 40px 15px;
+    }
+
+    .team-grid {
+        gap: 25px;
+        padding: 0 5px;
+    }
+
+    .team-member {
+        border-radius: 12px;
+    }
+
+    .team-member-image {
+        height: 220px;
+    }
+
+    .team-member-info {
+        padding: 18px 15px;
+    }
+
+    .team-member h3 {
+        font-size: 17px;
+    }
+
+    .team-member h4 {
+        font-size: 12px;
+    }
+
+    .team-member p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .Section2 h2, .Section3 h2 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+
+    .Section2 p {
+        font-size: 13px;
+    }
+
+    .team-member-image {
+        height: 200px;
+    }
+
+    .team-member h3 {
+        font-size: 16px;
+    }
+
+    .team-member h4 {
+        font-size: 11px;
+    }
+
+    .team-member p {
+        font-size: 11px;
+    }
+}
+
+/* Large screens */
+@media screen and (min-width: 1200px) {
+    .Section1 {
+        padding: 0 40px;
+    }
+
+    .Section2,
+    .Section3 {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
     </style>
 </head>
 <body>
-    <div class="Section1">
-      <img src="logo1.png" width="130px" height="70px">
-    
-        <ul>
-          <li><a class="active" href="./Project.html">Home</a></li>
-    
-          <div class="dropdown">
-            <button class="dropbtn"><a href="./Cars Main/Cars.html">Cars</a> 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="./Car Files and Images/audi.html">Audi</a>
-              <a href="./Car Files and Images/toyota.html">Toyota</a>
-              <a href="./Car Files and Images/suzuki.html">Suzuki</a>
-              <a href="./Car Files and Images/kia.html">Kia</a>
-              <a href="./Car Files and Images/mercedes.html">Mercedes</a>
-              <a href="./Car Files and Images/mg.html">Mg</a>
+    <div class="container">
+        <div class="Section1">
+            <div class="header-nav">
+                <div class="logo">
+                    <a href="./Project.html">
+                        <img src="logo1.png" width="130px" height="70px" alt="AutoStop Logo">
+                    </a>
+                </div>
+
+                <!-- Hamburger Menu Button -->
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="nav-container" id="navContainer">
+                    <ul>
+                        <li><a href="./Project.html">Home</a></li>
+                       
+                        
+                        <li class="dropdown" id="carsDropdown">
+                            <button class="dropbtn">
+                                <span>Cars</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="./Cars Main/Cars.html">All Cars</a>
+                                <a href="./Car Files and Images/audi.html">Audi</a>
+                                <a href="./Car Files and Images/toyota.html">Toyota</a>
+                                <a href="./Car Files and Images/suzuki.html">Suzuki</a>
+                                <a href="./Car Files and Images/kia.html">Kia</a>
+                                <a href="./Car Files and Images/mercedes.html">Mercedes</a>
+                                <a href="./Car Files and Images/mg.html">MG</a>
+                            </div>
+                        </li>
+                        
+                        <li class="dropdown" id="bikesDropdown">
+                            <button class="dropbtn">
+                                <span>Bikes</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="">All Bikes</a>
+                                <a href="./Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
+                                <a href="./Bike Files and Images/kawasaki.html">Kawasaki</a>
+                                <a href="./Bike Files and Images/honda-bike.html">Honda</a>
+                                <a href="./Bike Files and Images/Yamaha.html">Yamaha</a>
+                            </div>
+                        </li>
+                        
+                        <li class="dropdown" id="autostoreDropdown">
+                            <button class="dropbtn">
+                                <span>AutoStore</span>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="./AutoStore/Main.html">All Accessories</a>
+                                <a href="./AutoStore/corolla.html">Toyota Corolla</a>
+                                <a href="./AutoStore/fortuner.html">Toyota Fortuner</a>
+                                <a href="./AutoStore/vitz.html">Toyota Vitz</a>
+                            </div>
+                        </li>
+                         <li><a class="active" href="AboutUs.html">About Us</a></li>
+
+                       
+                    </ul>
+                </div>
             </div>
-          </div> 
-          <div class="dropdown">
-            <button class="dropbtn"><a href="">Bikes</a>
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="../Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
-              <a href="../Bike Files and Images/kawasaki.html">Kawasaki</a>
-              <a href="../Bike Files and Images/honda-bike.html">Honda</a>
-              <a href="../Bike Files and Images/Yamaha.html">Yamaha</a>
-            </div>
-          </div> 
-          <div class="dropdown">
-            <button class="dropbtn"><a href="">AutoStore</a>
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="./AutoStore/corolla.html">Toyota Corolla</a>
-              <a href="./AutoStore/fortuner.html">Toyota Fortuner</a>
-              <a href="./AutoStore/vitz.html">Toyota Vitz</a>
-            </div>
-          </div> 
-          <li><a href="AboutUs.html">About Us</a></li>
-        </ul> 
         </div>
         
         <div class="Section2">
-            <h2>About Us</h2>
-            <img src="./About Us/About Us.jpg">
-            <p>Founded in 2021, AutoStop has become Pakistan's most renowned automotive portal. Since its birth, AutoStop has helped millions of Pakistanis buy and sell automobiles, check automotive prices, and find solutions to their automotive needs. Today, AutoStop are the first name that comes to mind for anyone looking to purchase their ride.<br>
+            <div class="about-content">
+                <h2>About Us</h2>
+                <img src="./About Us/About Us.jpg" alt="About AutoStop">
+                <p>Founded in 2021, AutoStop has become Pakistan's most renowned automotive portal. Since its birth, AutoStop has helped millions of Pakistanis buy and sell automobiles, check automotive prices, and find solutions to their automotive needs. Today, AutoStop are the first name that comes to mind for anyone looking to purchase their ride.<br><br>
 
-                AutoStop has been busy serving its customers. Since its launch, we have achieved a milestone of 1 million happy customers by buying and selling over 400,000 vehicles.<br><br>
-                
-                This kind of success has made AutoStop a prominent name in the global e-commerce and classifieds sectors and helped raise $2 million in the first round of funding.<br><br>
-                
-                AutoStop is a hub where buyers and sellers interact and is a comprehensive automotive portal with a forum dedicated to all automotive discussions.<br><br>
-                
-                At AutoStop, we provide our visitors with the best online experience. Our mission is to revolutionize and continuously add value to the way people buy and sell vehicles online in Pakistan. We aim to provide our users with the most comprehensive automotive knowledge concerning Pakistan and the world alike and help them develop a sense of belonging in the automotive community. Our motto reflects our vision: 
-            </p>
-
+                    AutoStop has been busy serving its customers. Since its launch, we have achieved a milestone of 1 million happy customers by buying and selling over 400,000 vehicles.<br><br>
+                    
+                    This kind of success has made AutoStop a prominent name in the global e-commerce and classifieds sectors and helped raise $2 million in the first round of funding.<br><br>
+                    
+                    AutoStop is a hub where buyers and sellers interact and is a comprehensive automotive portal with a forum dedicated to all automotive discussions.<br><br>
+                    
+                    At AutoStop, we provide our visitors with the best online experience. Our mission is to revolutionize and continuously add value to the way people buy and sell vehicles online in Pakistan. We aim to provide our users with the most comprehensive automotive knowledge concerning Pakistan and the world alike and help them develop a sense of belonging in the automotive community. Our motto reflects our vision:
+                </p>
+            </div>
         </div>
+
         <div class="Section3">
+            <div class="team-content">
+                <h2>The Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="./About Us/jd.jpg" alt="Junaid Ahmed">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Junaid Ahmed</h3>
+                            <h4>Founder</h4>
+                            <p>Junaid Ahmed is the visionary behind AutoStop who single handedly started the portal from his Room.</p>
+                        </div>
+                    </div>
 
-            <h2>The Team</h2>
-            <div class="layout">
-                <div class="box1">
-                <img src="./About Us/jd.jpg">
-                <h3>Junaid Ahmed</h3>
-                <h4>Founder</h4>
-                <p class="para">Junaid Ahmed is the visionary behind AutoStop who single handedly started the portal from his Room.</p>
-            </div>
-            </div>
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="./About Us/sahto.jpg" alt="Abdullah Sahto">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Abdullah Sahto</h3>
+                            <h4>CEO</h4>
+                            <p>Abdullah Sahto is a Serial Entrepreneur. Founder & CEO of multiple software products & services companies.</p>
+                        </div>
+                    </div>
 
-            <div class="layout">
-                <div class="box2">
-                <img src="./About Us/sahto.jpg" width="203">
-                <h3>Abdullah Sahto</h3>
-                <h4>CEO</h4>
-                <p class="para">Abdullah Sahto is a Serial Entrepreneur. Founder & CEO of multiple software products & services companies.</p>
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="./About Us/maaz.jpg" alt="M Maaz Adil">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>M Maaz Adil</h3>
+                            <h4>COO</h4>
+                            <p>M Maaz Adil eats, drinks and sleeps cars 24/7, 365 and knows all the super car owners across Pakistan.</p>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="team-member-image">
+                            <img src="./About Us/taha.jpg" alt="Taha">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Taha</h3>
+                            <h4>CTO</h4>
+                            <p>Taha is the mind behind technological aspects of AutoStop, he is very passionate about his role in the company</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="layout">
-                <div class="box3">
-                <img src="./About Us/maaz.jpg" width="203px">
-                <h3>M Maaz Adil</h3>
-                <h4>COO</h4>
-                <p class="para">M Maaz Adil eats, drinks and sleeps cars 24/7, 365 and knows all the super car owners across Pakistan.</p>
-                
-            </div>
-            </div>
-
-            <div class="layout">
-              <div class="box4">
-              <img src="./About Us/chaan.jpeg" width="203px">
-              <h3>Taha</h3>
-              <h4>CTO</h4>
-              <p class="para">Taha is the mind behind technological aspects of AutoStop , he is very passionate about his role in the company</p>
-              
-          </div>
-          </div>
-            
         </div>
 
         <div class="Section6">
-  
-          <div class="layout">
-          <div class="Section6-box1"> 
-          <h3>Cars By Make</h3>
-          <a href="./Car Files and Images/kia.html"><p>Kia Cars</p></a>
-          <a href="./Car Files and Images/audi.html"><p>Audi Cars</p></a>
-          <a href="./Car Files and Images/mercedes.html"><p>Mercedes Cars</p></a>
-          <a href=""><p>Honda Cars</p></a>
-          <a href="./Car Files and Images/suzuki.html"><p>Suzuki Cars</p></a>
-          <a href="./Car Files and Images/mg.html"><p>MG Cars</p></a>
-          </div>
-          </div>
-          
-          <div class="layout">
-          <div class="Section6-box2"> 
-            <h3>Explore AutoStop</h3>
-            <a href=""><p>New Cars</p></a>
-            <a href=""><p>New Bikes</p></a>
-            <a href=""><p>Used Cars</p></a>
-            <a href=""><p>Used Bikes</p></a>
-            <a href=""><p>AutoParts & Accessories</p></a>
-            <a href=""><p>Cool Rides</p></a>
-            </div>
-            </div>
-          
-            <div class="layout">
-              <div class="Section6-box2"> 
-                <h3> AutoStop</h3>
-                <a href="AboutUs.html"><p>About AutoStop</p></a>
-                <a href=""><p>Our Products</p></a>
-                <a href=""><p>FAQs</p></a>
-                <a href=""><p>Advertise With Us</p></a>
-                <a href=""><p>Refunds & Returns</p></a>
-                <a href=""><p>Contact Us</p></a>
-                </div>
-                </div>
-          
-                <div class="layout">
-                  <div class="Section6-box2"> 
-                    <h3>Cars By Category</h3>
-                    <a href="./Categorized Car Files/Family.html"><p>Family Cars</p></a>
-                    <a href="./Categorized Car Files/SUV.html"><p>SUV Cars</p></a>
-                    <a href="./Categorized Car Files/Small.html"><p>Small Cars</p></a>
-                    <a href=""><p>Low Priced Cars</p></a>
-                    <a href=""><p>4x4 Cars</p></a>
-                    <a href=""><p>1000cc Cars</p></a>
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-column">
+                        <h3>Cars By Make</h3>
+                        <a href="./Car Files and Images/kia.html">Kia Cars</a>
+                        <a href="./Car Files and Images/audi.html">Audi Cars</a>
+                        <a href="./Car Files and Images/mercedes.html">Mercedes Cars</a>
+                        <a href="">Honda Cars</a>
+                        <a href="./Car Files and Images/suzuki.html">Suzuki Cars</a>
+                        <a href="./Car Files and Images/mg.html">MG Cars</a>
                     </div>
-                    </div>
-          
-                    <hr>
-          
-                    <div class="copyright">
-                      <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
-                      <p class="line2">Terms of Service |  Privacy Policy</p>
-                      <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
-                    </div>
-          
-          </div>
-          
 
+                    <div class="footer-column">
+                        <h3>Explore AutoStop</h3>
+                        <a href="">New Cars</a>
+                        <a href="">New Bikes</a>
+                        <a href="">Used Cars</a>
+                        <a href="">Used Bikes</a>
+                        <a href="">AutoParts & Accessories</a>
+                        <a href="">Cool Rides</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>AutoStop</h3>
+                        <a href="AboutUs.html">About AutoStop</a>
+                        <a href="">Our Products</a>
+                        <a href="">FAQs</a>
+                        <a href="">Advertise With Us</a>
+                        <a href="">Refunds & Returns</a>
+                        <a href="">Contact Us</a>
+                    </div>
+
+                    <div class="footer-column">
+                        <h3>Cars By Category</h3>
+                        <a href="./Categorized Car Files/Family.html">Family Cars</a>
+                        <a href="./Categorized Car Files/SUV.html">SUV Cars</a>
+                        <a href="./Categorized Car Files/Small.html">Small Cars</a>
+                        <a href="">Low Priced Cars</a>
+                        <a href="">4x4 Cars</a>
+                        <a href="">1000cc Cars</a>
+                    </div>
+                </div>
+
+                <hr class="footer-divider">
+                
+                <div class="copyright">
+                    <p>Copyright © 2003 - 2025 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+                    <p>Terms of Service | Privacy Policy</p>
+                    <p>Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Overlay for mobile menu -->
+        <div class="nav-overlay" id="navOverlay"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navContainer = document.getElementById('navContainer');
+            const navOverlay = document.getElementById('navOverlay');
+            const dropdowns = document.querySelectorAll('.dropdown');
+
+            // Toggle mobile menu
+            if (hamburger && navContainer && navOverlay) {
+                hamburger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    hamburger.classList.toggle('active');
+                    navContainer.classList.toggle('active');
+                    navOverlay.classList.toggle('active');
+                    document.body.style.overflow = navContainer.classList.contains('active') ? 'hidden' : '';
+                });
+
+                // Close menu when clicking overlay
+                navOverlay.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navContainer.classList.remove('active');
+                    navOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    
+                    // Close all dropdowns
+                    dropdowns.forEach(function(dropdown) {
+                        dropdown.classList.remove('active');
+                    });
+                });
+            }
+
+            // Handle dropdown clicks on mobile
+            dropdowns.forEach(function(dropdown) {
+                const dropbtn = dropdown.querySelector('.dropbtn');
+                if (dropbtn) {
+                    dropbtn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (window.innerWidth <= 968) {
+                            // Close other dropdowns
+                            dropdowns.forEach(function(otherDropdown) {
+                                if (otherDropdown !== dropdown) {
+                                    otherDropdown.classList.remove('active');
+                                }
+                            });
+                            
+                            // Toggle current dropdown
+                            dropdown.classList.toggle('active');
+                        }
+                    });
+                }
+            });
+
+            // Close mobile menu when window is resized to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 968) {
+                    if (hamburger && navContainer && navOverlay) {
+                        hamburger.classList.remove('active');
+                        navContainer.classList.remove('active');
+                        navOverlay.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                    dropdowns.forEach(function(dropdown) {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            });
+
+            // Close mobile menu when clicking navigation links
+            const navLinks = document.querySelectorAll('.nav-container a');
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 968) {
+                        if (hamburger && navContainer && navOverlay) {
+                            hamburger.classList.remove('active');
+                            navContainer.classList.remove('active');
+                            navOverlay.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

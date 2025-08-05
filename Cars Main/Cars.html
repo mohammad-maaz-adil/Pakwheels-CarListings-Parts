@@ -6,69 +6,94 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>AutoStop - Find New Cars in Pakistan</title>
   <style>
     * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
+    .container {
+      width: 100%;
+    }
+
+    /* Header Section */
     .Section1 {
       height: 80px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #e9ecef;
+      position: relative;
     }
 
-    .Section1 img {
-      float: left;
-      margin-left: 12.5%;
+    .header-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
+    .logo {
+      flex-shrink: 0;
+    }
+
+    .nav-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Navigation */
     ul {
       list-style-type: none;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      margin-left: 30%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
     li {
-      float: left;
+      display: inline-block;
     }
 
     li a {
       display: block;
       color: #012D62;
       text-align: center;
-      padding: 14px 30px;
+      padding: 14px 20px;
       text-decoration: none;
-      margin-top: 15px;
+      white-space: nowrap;
     }
 
     li a:hover {
-      background-color: white;
+      background-color: #f8f9fa;
       color: red;
     }
 
     .dropdown {
-      float: left;
-      overflow: hidden;
-    }
-
-    .dropdown a {
-      color: white;
+      display: inline-block;
+      position: relative;
     }
 
     .dropdown .dropbtn {
       font-size: 16px;
       border: none;
       outline: none;
-      color: white;
-      padding: 14px 30px;
-      background-color: inherit;
-      font-family: inherit;
-      margin-top: 15px;
+      background: none;
+      padding: 14px 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #012D62;
     }
 
     .dropdown a {
@@ -76,13 +101,8 @@
       color: #012D62;
     }
 
-    .dropdown a:hover {
-      color: red;
-    }
-
-    .navbar a:hover,
+    .dropdown a:hover,
     .dropdown:hover .dropbtn {
-      background-color: white;
       color: red;
     }
 
@@ -93,10 +113,11 @@
       min-width: 160px;
       box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
       z-index: 1;
+      top: 100%;
+      left: 0;
     }
 
     .dropdown-content a {
-      float: none;
       color: black;
       padding: 12px 16px;
       text-decoration: none;
@@ -112,42 +133,53 @@
       display: block;
     }
 
+    /* Hero Section */
     .Section2 {
       background-color: #0070cc;
-      height: 200px;
+      padding: 50px 20px;
+      text-align: center;
     }
 
     .Section2 h2 {
       color: white;
-      margin-left: 300px;
-      padding-top: 50px;
+      margin-bottom: 30px;
+      font-size: clamp(20px, 4vw, 32px);
+    }
+
+    /* Search Form */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    form.example {
+      display: flex;
+      width: 100%;
+      max-width: 500px;
     }
 
     form.example input[type=text] {
-      padding: 10px;
-      font-size: 17px;
+      flex: 1;
+      padding: 12px 15px;
+      font-size: 16px;
       border: 1px solid grey;
-      float: left;
-      margin-left: 29%;
       border-top-left-radius: 8px;
       border-bottom-left-radius: 8px;
-      margin-top: 20px;
-      width: 35%;
       background: #f1f1f1;
+      min-width: 0;
     }
 
     form.example button {
-      float: left;
-      width: 5%;
-      border-top-right-radius: 8px;
-      border-bottom-right-radius: 8px;
-      padding: 10px;
+      width: 60px;
+      padding: 12px;
       background: rgb(2, 196, 2);
       color: white;
-      font-size: 17px;
-      margin-top: 20px;
+      font-size: 16px;
       border: 1px solid grey;
       border-left: none;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
       cursor: pointer;
     }
 
@@ -155,568 +187,642 @@
       background: green;
     }
 
-    form.example::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-
+    /* Car Grid Section */
     .Section3 {
-      height: 600px;
+      padding: 60px 20px;
+      background-color: #f8f9fa;
     }
 
-    .Section3 .box {
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .car-box {
       border: 1px solid rgb(235, 235, 235);
-      width: 260px;
-      margin-left: 300px;
-      margin-top: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
+      display: flex;
+      flex-direction: column;
     }
 
-    .Section3 .box p {
-      text-align: center;
+    .car-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     }
 
-    .Section3 .box h3 {
+    .car-image-container {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f8f9fa;
+      padding: 20px;
+    }
+
+    .car-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .car-info {
+      padding: 20px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .car-info p {
+      margin-bottom: 8px;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .car-info p b {
+      color: #333;
+    }
+
+    .car-info h3 {
       color: rgb(0, 206, 0);
+      font-size: 24px;
+      margin: 20px 0;
       text-align: center;
-      margin-top: 20px;
+      font-weight: bold;
     }
 
-    .Section3 .box2 {
-      border: 1px solid rgb(235, 235, 235);
-      width: 260px;
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .Section3 .box2 p {
-      text-align: center;
-    }
-
-    .Section3 .box2 h3 {
-      color: rgb(0, 206, 0);
-      text-align: center;
-      margin-top: 20px;
-    }
-
-
-    .Section3 .box3 {
-      border: 1px solid rgb(235, 235, 235);
-      width: 260px;
-      margin-left: 20px;
-      margin-top: 10px;
-    }
-
-    .Section3 .box3 p {
-      text-align: center;
-    }
-
-    .Section3 .box3 h3 {
-      color: rgb(0, 206, 0);
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .Section3 button {
+    .book-btn {
+      width: calc(100% - 40px);
+      margin: 0 auto 20px auto;
       border: none;
-      margin-left: 50px;
       color: white;
       font-weight: bold;
       background-color: #B73439;
-      padding: 10px 50px;
+      padding: 12px 20px;
       border-radius: 4px;
-      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
     }
 
-    .Section3 button:hover {
+    .book-btn:hover {
       background-color: #752124;
-
     }
 
-    .Section3 button a {
+    .book-btn a {
       text-decoration: none;
       color: white;
+    }
+
+    /* Footer */
+    .Section6 {
+      background-color: #23292F;
+      padding: 50px 20px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .footer-section a {
+      color: rgb(175, 175, 175);
+      font-size: 12px;
+      text-decoration: none;
+      display: block;
+      padding: 3px 0;
+      transition: color 0.3s ease;
+    }
+
+    .footer-section a:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    .footer-divider {
+      border: none;
+      height: 0.5px;
+      background-color: rgb(110, 110, 110);
+      margin: 40px 0 20px 0;
+    }
+
+    .copyright {
+      text-align: center;
+      color: gray;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .copyright p {
+      margin-bottom: 5px;
+    }
+
+    /* Responsive Design */
+    @media screen and (max-width: 968px) {
+      .header-nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-container {
+        width: 100%;
+        order: 3;
+      }
+
+      ul {
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(248, 249, 250, 0.95);
+        padding: 10px 0;
+        border-top: 1px solid #e9ecef;
+      }
+
+      li {
+        width: 100%;
+      }
+
+      li a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .dropdown {
+        width: 100%;
+      }
+
+      .dropdown .dropbtn {
+        width: 100%;
+        justify-content: space-between;
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+
+      .dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+
+      .car-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 30px;
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      .Section1 {
+        height: auto;
+        padding: 10px 0;
+      }
+
+      .header-nav {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .logo {
+        margin-bottom: 10px;
+      }
+
+      .Section1 img {
+        width: 100px;
+        height: 55px;
+      }
+
+      .Section2 {
+        padding: 40px 15px;
+      }
+
+      .Section3 {
+        padding: 40px 15px;
+      }
+
+      .car-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .car-image-container {
+        height: 180px;
+      }
+
+      .car-info {
+        padding: 15px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+      }
+
+      .copyright {
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .Section1 img {
+        max-width: 120px;
+      }
+
+      .Section2 h2 {
+        font-size: 20px;
+      }
+
+      .car-info {
+        padding: 15px;
+      }
+
+      .car-info h3 {
+        font-size: 18px;
+      }
+    }
+
+    /* Utility Classes */
+    .text-center {
+      text-align: center;
     }
 
     a {
       text-decoration: none;
-      color: black;
-    }
-
-    .section3 .box a:hover {
-      box-shadow: 0 5px 15px rgba(224, 72, 72, 0.3);
-    }
-
-    .Section3 .layout {
-      display: inline-block;
-    }
-
-    .Section6 {
-      background-color: #23292F;
-      margin-top: 1700px;
-      height: 300px;
-    }
-
-    .Section6 .Section6-box1 {
-      padding-top: 20px;
-      margin-left: 400px;
-
-    }
-
-    .Section6 .Section6-box1 h3 {
-      color: white;
-      font-size: 15px;
-      margin-bottom: 7px;
-    }
-
-    .Section6 a {
-
-      color: rgb(175, 175, 175);
-      font-size: 12px;
-
-    }
-
-    .Section6 p {
-      padding-bottom: 2px;
-    }
-
-    .Section6 a:hover {
-      text-decoration: underline;
-    }
-
-    .Section6 .Section6-box2 {
-      margin-left: 100px;
-    }
-
-    .Section6 .Section6-box2 h3 {
-      color: white;
-      font-size: 15px;
-      margin-bottom: 7px;
-    }
-
-    .Section6 .layout {
-      display: inline-block;
-    }
-
-    .Section6 hr {
-      border: none;
-      height: 0.5px;
-      width: 55%;
-      margin-top: 70px;
-      margin-left: 24%;
-      background-color: rgb(110, 110, 110);
-      /* Modern Browsers */
-    }
-
-    .Section6 .copyright .line1 {
-      color: gray;
-      margin-top: 20px;
-      margin-left: 40%;
-      font-size: 10px;
-    }
-
-    .Section6 .copyright .line2 {
-      color: gray;
-      margin-left: 46%;
-      margin-top: 5px;
-      font-size: 10px;
-    }
-
-    .Section6 .copyright .line3 {
-      color: gray;
-      margin-top: 10px;
-      margin-left: 35%;
-      font-size: 10px;
+      color: inherit;
     }
   </style>
 </head>
 
 <body>
-  <div class="Section1">
-    <img src="/logo1.png" width="150px" height="70px">
+  <div class="container">
+    <div class="Section1">
+      <div class="header-nav">
+        <div class="logo">
+          <a href="../Project.html">
+            <img src="/logo1.png" width="130px" height="70px" alt="AutoStop Logo">
+          </a>
+        </div>
 
-    <ul>
-      <li><a class="active" href="../Project.html">Home</a></li>
-
-      <div class="dropdown">
-        <button class="dropbtn"><a href="">Cars</a>
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="/Car Files and Images/audi.html">Audi</a>
-          <a href="/Car Files and Images/toyota.html">Toyota</a>
-          <a href="/Car Files and Images/suzuki.html">Suzuki</a>
-          <a href="/Car Files and Images/kia.html">Kia</a>
-          <a href="/Car Files and Images/mercedes.html">Mercedes</a>
-          <a href="/Car Files and Images/mg.html">Mg</a>
+        <div class="nav-container">
+          <ul>
+            <li><a class="active" href="../Project.html">Home</a></li>
+            
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="../Cars Main/Cars.html">Cars</a>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="/Car Files and Images/audi.html">Audi</a>
+                <a href="/Car Files and Images/toyota.html">Toyota</a>
+                <a href="/Car Files and Images/suzuki.html">Suzuki</a>
+                <a href="/Car Files and Images/kia.html">Kia</a>
+                <a href="/Car Files and Images/mercedes.html">Mercedes</a>
+                <a href="/Car Files and Images/mg.html">MG</a>
+              </div>
+            </div>
+            
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="">Bikes</a>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="../Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
+                <a href="../Bike Files and Images/kawasaki.html">Kawasaki</a>
+                <a href="../Bike Files and Images/honda-bike.html">Honda</a>
+                <a href="../Bike Files and Images/Yamaha.html">Yamaha</a>
+              </div>
+            </div>
+            
+            <div class="dropdown">
+              <button class="dropbtn">
+                <a href="../AutoStore/Main.html">AutoStore</a>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="../AutoStore/corolla.html">Toyota Corolla</a>
+                <a href="../AutoStore/fortuner.html">Toyota Fortuner</a>
+                <a href="../AutoStore/vitz.html">Toyota Vitz</a>
+              </div>
+            </div>
+            
+            <li><a href="../AboutUs.html">About Us</a></li>
+          </ul>
         </div>
       </div>
-      <div class="dropdown">
-        <button class="dropbtn"><a href="">Bikes</a>
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="../Bike Files and Images/SUZUKI-Bike.html">Suzuki</a>
-          <a href="../Bike Files and Images/kawasaki.html">Kawasaki</a>
-          <a href="../Bike Files and Images/honda-bike.html">Honda</a>
-          <a href="../Bike Files and Images/Yamaha.html">Yamaha</a>
+    </div>
+
+    <div class="Section2">
+      <h2>Find New Cars in Pakistan</h2>
+      <div class="search-container">
+        <form class="example" action="/action_page.php">
+          <input type="text" placeholder="Search for cars..." name="search">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="Section3">
+      <div class="car-grid">
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="audi3.png" alt="Audi Etron GT">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Audi Etron GT</p>
+            <p><b>Transmission:</b> 6-speed manual</p>
+            <p><b>Engine:</b> Electric</p>
+            <h3>PKR 15.6 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="mercedes1.png" alt="Mercedes-AMG GT">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Mercedes-AMG GT</p>
+            <p><b>Transmission:</b> 7-speed AMG SPEEDSHIFT DCT</p>
+            <p><b>Engine:</b> 4.0 L M178</p>
+            <h3>PKR 1.18 crore</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="corolla.jpg" alt="Corolla Altis Grande">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Corolla Altis Grande</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Fuel Type:</b> Petrol</p>
+            <p><b>Engine:</b> 1798cc</p>
+            <h3>PKR 40 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="mg2.jpg" alt="MG ZS Luxury">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> MG ZS Luxury</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Engine:</b> 1498cc</p>
+            <h3>PKR 7 crore</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="mercedes2.png" alt="Mercedes S Class Sedan">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Mercedes S Class Sedan</p>
+            <p><b>Transmission:</b> 9-Speed Automatic</p>
+            <p><b>Engine:</b> 3.0L Turbo Inline-6</p>
+            <h3>PKR 6.3 crore</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="Suzuki_Vitara_2016_Pakistan.jpg" alt="Suzuki Vitara">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Suzuki Vitara</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Class:</b> Mid-size SUV</p>
+            <p><b>Engine:</b> 1586cc</p>
+            <h3>PKR 67 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="fortuner.png" alt="Toyota Fortuner">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Toyota Fortuner</p>
+            <p><b>Transmission:</b> 6-speed manual (4WD)</p>
+            <p><b>Class:</b> Mid-size SUV</p>
+            <p><b>Engine:</b> 2694cc</p>
+            <h3>PKR 85 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="mercedes3.png" alt="Mercedes S Class Coupe">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Mercedes S Class Coupe</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Engine:</b> 4.0L Turbocharged V8</p>
+            <h3>PKR 1.56 crore</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="mg3.png" alt="MG M3">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> MG M3</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Engine:</b> 1500cc</p>
+            <h3>PKR 12 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="audi2.png" alt="Audi A7">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Audi A7</p>
+            <p><b>Transmission:</b> 6-speed manual</p>
+            <p><b>Class:</b> Executive</p>
+            <p><b>Engine:</b> 2967cc</p>
+            <h3>PKR 12 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="Sportage.png" alt="KIA Sportage">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> KIA Sportage</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Fuel Type:</b> Petrol</p>
+            <p><b>Engine:</b> 2000cc</p>
+            <h3>PKR 55 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="Suzuki_Alto_-_PNG.png" alt="Suzuki Alto">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Suzuki Alto</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Class:</b> Compact</p>
+            <p><b>Engine:</b> 658cc</p>
+            <h3>PKR 20 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="vitz.jpg" alt="Toyota Vitz">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Toyota Vitz</p>
+            <p><b>Transmission:</b> DOHC 16 valves VVT-i</p>
+            <p><b>Class:</b> Compact</p>
+            <p><b>Engine:</b> 1298cc</p>
+            <h3>PKR 29 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="ciaz.jpg" alt="Suzuki Ciaz">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> Suzuki Ciaz</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Fuel Type:</b> Petrol</p>
+            <p><b>Engine:</b> 1798cc</p>
+            <h3>PKR 35 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
+        </div>
+
+        <div class="car-box">
+          <div class="car-image-container">
+            <img src="sorento.jpg" alt="KIA Sorento">
+          </div>
+          <div class="car-info">
+            <p><b>Year:</b> 2021</p>
+            <p><b>Model:</b> KIA Sorento</p>
+            <p><b>Transmission:</b> Automatic</p>
+            <p><b>Class:</b> Mid Size SUV</p>
+            <p><b>Engine:</b> 3298cc</p>
+            <h3>PKR 70 lac</h3>
+            <button class="book-btn"><a href="">Book Now</a></button>
+          </div>
         </div>
       </div>
-      <div class="dropdown">
-        <button class="dropbtn"><a href="">AutoStore</a>
-          <i class="fa fa-caret-down"></i>
-        </button>
-        <div class="dropdown-content">
-          <a href="../AutoStore/corolla.html">Toyota Corolla</a>
-          <a href="../AutoStore/fortuner.html">Toyota Fortuner</a>
-          <a href="../AutoStore/vitz.html">Toyota Vitz</a>
+    </div>
+
+    <div class="Section6">
+      <div class="footer-content">
+        <div class="footer-grid">
+          <div class="footer-section">
+            <h3>Cars By Make</h3>
+            <a href="./Car Files and Images/kia.html">Kia Cars</a>
+            <a href="./Car Files and Images/audi.html">Audi Cars</a>
+            <a href="./Car Files and Images/mercedes.html">Mercedes Cars</a>
+            <a href="">Honda Cars</a>
+            <a href="./Car Files and Images/suzuki.html">Suzuki Cars</a>
+            <a href="./Car Files and Images/mg.html">MG Cars</a>
+          </div>
+
+          <div class="footer-section">
+            <h3>Explore AutoStop</h3>
+            <a href="/Cars Main/Cars.html">New Cars</a>
+            <a href="">New Bikes</a>
+            <a href="/Under Development Pages/Used Cars.html">Used Cars</a>
+            <a href="/Under Development Pages/Used Bikes.html">Used Bikes</a>
+            <a href="/AutoStore/Main.html">AutoParts & Accessories</a>
+            <a href="/Under Development Pages/Cool Rides.html">Cool Rides</a>
+          </div>
+
+          <div class="footer-section">
+            <h3>AutoStop</h3>
+            <a href="AboutUs.html">About AutoStop</a>
+            <a href="/Under Development Pages/Our Products.html">Our Products</a>
+            <a href="/Under Development Pages/FAQ.html">FAQs</a>
+            <a href="/Under Development Pages/Advertise with Us.html">Advertise With Us</a>
+            <a href="/Under Development Pages/Refunds and Returns.html">Refunds & Returns</a>
+            <a href="/Under Development Pages/Contact Us.html">Contact Us</a>
+          </div>
+
+          <div class="footer-section">
+            <h3>Cars By Category</h3>
+            <a href="./Categorized Car Files/Family.html">Family Cars</a>
+            <a href="./Categorized Car Files/SUV.html">SUV Cars</a>
+            <a href="./Categorized Car Files/Small.html">Small Cars</a>
+            <a href="">Low Priced Cars</a>
+            <a href="">4x4 Cars</a>
+            <a href="">1000cc Cars</a>
+          </div>
+        </div>
+
+        <hr class="footer-divider">
+
+        <div class="copyright">
+          <p>Copyright © 2003 - 2025 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+          <p>Terms of Service | Privacy Policy</p>
+          <p>Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
         </div>
       </div>
-      <li><a href="../AboutUs.html">About Us</a></li>
-
-    </ul>
-
-  </div>
-  <div class="Section2">
-    <h2>Find New Cars in Pakistan</h2>
-    <form class="example" action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
-  </div>
-
-  <div class="Section3">
-
-    <div class="layout">
-      <div class="box">
-        <a href="">
-          <img src="audi3.png" width="210px" height="150px"
-            style="margin-top: 0px; margin-bottom: 0px; margin-left: 23px;">
-          <p><b>Year</b><br>2021</p>
-          <p><b>Model<br></b>Audi Etron GT</p>
-          <p><b>Transmission<br></b>6-speed manual</p>
-          <p><b>Engine Displacement<br></b>Electric</p>
-          <h3>PKR 15.6lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
     </div>
-    <div class="layout">
-      <div class="box2">
-        <a href="">
-          <img src="mercedes1.png" width="250px" height="200px" style="margin-bottom: -39px; margin-top: -20px;">
-          <p><b>Year</b><br>2021</p>
-          <p><b>Model<br></b>Mercedes-AMG GT</p>
-          <p><b>Transmission<br></b>7-speed AMG SPEEDSHIFT DCT dual-clutch</p>
-          <p><b>Engine <br></b>4.0 L M178 </p>
-          <h3>PKR 11,844,150</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box3">
-        <a href="">
-          <img src="corolla.jpg" width="200px" height="150px" style="margin-bottom: -30px; margin-left: 23px;">
-          <p><b>Year</b><br>2021</p>
-          <p><b>Model<br></b>Corolla Altis Grande</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Fuel Type<br></b>Petrol</p>
-          <p><b>Engine Displacement<br></b>1798cc</p>
-          <h3>PKR 40lac</h3><br>
-
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box">
-        <a href="">
-          <img src="mg2.jpg" width="250px" height="180px">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>MG ZS Luxury</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Engine<br></b>1498cc</p>
-          <h3>PKR 70,000,000</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-    <div class="layout">
-      <div class="box2">
-        <a href="">
-          <a href="">
-            <img src="mercedes2.png" width="250px" height="160px" style="margin-top: 20px;">
-            <p><b>Year<br></b>2021</p>
-            <p><b>Model<br></b>Mercedes S Class Sedan</p>
-            <p><b>Transmission<br></b>9-Speed Automatic</p>
-            <p><b>Engine<br></b>3.0L Turbo Inline-6 Gas</p>
-            <h3>PKR 63,000,000</h3><br>
-            <button><a href="">Book Now</a></button>
-          </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box3">
-        <img src="Suzuki_Vitara_2016_Pakistan.jpg" width="200px" height="150px"
-          style="margin-bottom: -20px; margin-left: 20px;">
-        <p><b>Year<br></b>2021</p>
-        <p><b>Model<br></b>Suzuki Vitara</p>
-        <p><b>Transmission<br></b>Automatic</p>
-        <p><b>Class<br></b>Mid-size SUV</p>
-        <p><b>Engine Displacement<br></b>1586 cc</p>
-        <h3>PKR 67lac</h3><br>
-        <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box">
-        <a href="">
-          <img src="fortuner.png" width="200px" height="150px" style="margin-bottom: -20px; margin-left: 23px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>Fortuner</p>
-          <p><b>Transmission<br></b>6-speed manual (4WD only)</p>
-          <p><b>Class<br></b>Mid-size SUV</p>
-          <p><b>Engine Displacement<br></b>2694cc</p>
-          <h3>PKR 85lac</h3><br>
-          <a href="">
-            <button><a href="">Book Now</a></button>
-          </a>
-      </div>
-    </div>
-    <div class="layout">
-      <div class="box2">
-        <a href="">
-          <img src="mercedes3.png" width="250px" height="130px" style="margin-top: 10px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>Mercedes S Class Coupe</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Engine<br></b>4.0-litre turbocharged V8</p>
-          <h3>PKR 15,620,995</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box3">
-        <a href="">
-          <img src="mg3.png" width="220px" height="120px" style=" margin-top: 20px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>MG M3</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Engine <br></b>1500cc</p>
-          <h3>PKR 12,00,000</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="layout">
-      <div class="box">
-        <a href="">
-          <img src="audi2.png" width="250px" height="120px" style="margin-top: 10px; margin-bottom: 20px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>Audi A7</p>
-          <p><b>Transmission<br></b>6-speed manual</p>
-          <p><b>Class<br></b>Executive</p>
-          <p><b>Engine Displacement<br></b>2967cc</p>
-          <h3>PKR 12lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-    <div class="layout">
-      <div class="box2">
-        <a href="">
-          <img src="Sportage.png" width="220px" height="165px" style="margin-left: 20px; margin-bottom: -15px;">
-          <p><b>Year</b><br>2021</p>
-          <p><b>Model<br></b>KIA Sportage</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Fuel Type<br></b>Petrol</p>
-          <p><b>Engine Displacement<br></b>2000cc</p>
-          <h3>PKR 55lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box3">
-        <a href="">
-          <img src="Suzuki_Alto_-_PNG.png" width="200px" height="140px" style="margin-left: 20px; margin-top: 10px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>Alto</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Class<br></b>Compact</p>
-          <p><b>Engine Displacement<br></b>658cc</p>
-          <h3>PKR 20lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-
-    <div class="layout">
-      <div class="box">
-        <a href="">
-          <img src="vitz.jpg" width="200px" height="150px" style="margin-bottom: -20px; margin-left: 25px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>Vitz</p>
-          <p><b>Transmission<br></b>DOHC 16 valves VVT-i</p>
-          <p><b>Class<br></b>Mid-size SUV</p>
-          <p><b>Engine Displacement<br></b>1298cc</p>
-          <h3>PKR 29lac</h3><br>
-          <a href="">
-            <button><a href="">Book Now</a></button>
-          </a>
-      </div>
-    </div>
-    <div class="layout">
-      <div class="box2">
-        <a href="">
-          <img src="ciaz.jpg" width="220px" height="90px" style="padding-top: 30px; margin-left: 20px;">
-          <p><b>Year</b><br>2021</p>
-          <p><b>Model<br></b>Suzuki Ciaz</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Fuel Type<br></b>Petrol</p>
-          <p><b>Engine Displacement<br></b>1798cc</p>
-          <h3>PKR 35lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="box3">
-        <a href="">
-          <img src="sorento.jpg" width="220px" height="170px"
-            style="margin-left: 30px; margin-bottom: -20px; margin-top: -20px;">
-          <p><b>Year<br></b>2021</p>
-          <p><b>Model<br></b>KIA Sorento</p>
-          <p><b>Transmission<br></b>Automatic</p>
-          <p><b>Class<br></b>Mid Size SUV</p>
-          <p><b>Engine Displacement<br></b>3298cc</p>
-          <h3>PKR 70lac</h3><br>
-          <button><a href="">Book Now</a></button>
-        </a>
-      </div>
-    </div>
-
-
-  </div>
-  <div class="Section6">
-
-    <div class="layout">
-      <div class="Section6-box1">
-        <h3>Cars By Make</h3>
-        <a href="./Car Files and Images/kia.html">
-          <p>Kia Cars</p>
-        </a>
-        <a href="./Car Files and Images/audi.html">
-          <p>Audi Cars</p>
-        </a>
-        <a href="./Car Files and Images/mercedes.html">
-          <p>Mercedes Cars</p>
-        </a>
-        <a href="">
-          <p>Honda Cars</p>
-        </a>
-        <a href="./Car Files and Images/suzuki.html">
-          <p>Suzuki Cars</p>
-        </a>
-        <a href="./Car Files and Images/mg.html">
-          <p>MG Cars</p>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="Section6-box2">
-        <h3>Explore AutoStop</h3>
-        <a href="/Cars Main/Cars.html">
-          <p>New Cars</p>
-        </a>
-        <a href="">
-          <p>New Bikes</p>
-        </a>
-        <a href="/Under Development Pages/Used Cars.html">
-          <p>Used Cars</p>
-        </a>
-        <a href="/Under Development Pages/Used Bikes.html">
-          <p>Used Bikes</p>
-        </a>
-        <a href="/AutoStore/Main.html">
-          <p>AutoParts & Accessories</p>
-        </a>
-        <a href="/Under Development Pages/Cool Rides.html">
-          <p>Cool Rides</p>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="Section6-box2">
-        <h3> AutoStop</h3>
-        <a href="AboutUs.html">
-          <p>About AutoStop</p>
-        </a>
-        <a href="/Under Development Pages/Our Products.html">
-          <p>Our Products</p>
-        </a>
-        <a href="/Under Development Pages/FAQ.html">
-          <p>FAQs</p>
-        </a>
-        <a href="/Under Development Pages/Advertise with Us.html">
-          <p>Advertise With Us</p>
-        </a>
-        <a href="/Under Development Pages/Refunds and Returns.html">
-          <p>Refunds & Returns</p>
-        </a>
-        <a href="/Under Development Pages/Contact Us.html">
-          <p>Contact Us</p>
-        </a>
-      </div>
-    </div>
-
-    <div class="layout">
-      <div class="Section6-box2">
-        <h3>Cars By Category</h3>
-        <a href="./Categorized Car Files/Family.html">
-          <p>Family Cars</p>
-        </a>
-        <a href="./Categorized Car Files/SUV.html">
-          <p>SUV Cars</p>
-        </a>
-        <a href="./Categorized Car Files/Small.html">
-          <p>Small Cars</p>
-        </a>
-        <a href="">
-          <p>Low Priced Cars</p>
-        </a>
-        <a href="">
-          <p>4x4 Cars</p>
-        </a>
-        <a href="">
-          <p>1000cc Cars</p>
-        </a>
-      </div>
-    </div>
-
-    <hr>
-
-    <div class="copyright">
-      <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
-      <p class="line2">Terms of Service | Privacy Policy</p>
-      <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
-    </div>
-
   </div>
 </body>
 

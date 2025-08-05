@@ -5,448 +5,690 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Honda Bikes - AutoStop</title>
     <style>
-        
         * {
-      margin: 0;
-    }
-   
-    body {
-      font-family: sans-serif;
-    }
-    .Section1 {
-      
-      height: 80px;
-    }
-    .Section1 img {
-        float: left;
-      margin-left: 200px;
-      
-    }
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  margin-left: 30%;
-  
-  
-}
+        body {
+            font-family: sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-li {
-  float: left;
-}
+        .container {
+            width: 100%;
+        }
 
-li a {
-  display: block;
-  color: #012D62;
-  text-align: center;
-  padding: 14px 30px;
-  text-decoration: none;
-  margin-top: 15px;
-}
+        /* Header Section */
+        .Section1 {
+            height: 80px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #e9ecef;
+            position: relative;
+        }
 
-li a:hover {
-  background-color:white;
-  color: red;
-}
+        .header-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 0 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.dropdown {
-  float: left;
-}
+        .logo {
+            flex-shrink: 0;
+        }
 
+        .nav-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
 
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 30px;
-  margin-top: 15px;
-}
-.dropdown a {
-  text-decoration: none;
-  color: #012D62;
-}
-.dropdown a:hover {
-    color: red;
-}
+        /* Navigation */
+        ul {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
 
-.dropdown:hover .dropbtn:hover {
-  color: red;
-}
+        li {
+            display: inline-block;
+        }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+        li a {
+            display: block;
+            color: #012D62;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
+        li a:hover {
+            background-color: white;
+            color: red;
+        }
 
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
+        .dropdown {
+            display: inline-block;
+            position: relative;
+        }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-.Section2 {
-    background-color:#0070cc;
-    height: 200px;
-}
-.Section2 h2 {
-    color: white;
-    margin-left: 300px;
-   padding-top: 50px;
-}
-.example input {
-  padding: 10px;
-  font-size: 17px;
-  border: 1px solid grey;
-  float: left;
-  margin-left: 29%;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  margin-top: 20px;
-  width: 35%;
-  background: #f1f1f1;
-}
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            background: none;
+            padding: 14px 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: white;
+        }
 
-.example button {
-  width: 5%;
-  border-top-right-radius:8px ;
-  border-bottom-right-radius:8px  ;
-  padding: 10px;
-  background: rgb(2, 196, 2);
-  color: white;
-  font-size: 17px;
-  margin-top: 20px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
+        .dropdown a {
+            text-decoration: none;
+            color: #012D62;
+        }
 
-.example button:hover {
-  background: green;
-}
+        .dropdown a:hover,
+        .dropdown:hover .dropbtn {
+            color: red;
+        }
 
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
 
-.Section3 {
-    height: 600px;
-}
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
 
-.Section3 .layout{
-    display: inline-block;
-}
-.Section3 .box {
-    border: 1px solid rgb(235, 235, 235);
-    width: 260px;
-    margin-left: 300px;
-    margin-top: 10px;
-}
- .Section3 .box p {
-    text-align: center;
-}
-.Section3 .box h3 {
-    color: rgb(0, 206, 0);
-    text-align: center;
-    margin-top: 20px;
-}
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
 
-.Section3 .box2 {
-    border: 1px solid rgb(235, 235, 235);
-    width: 260px;
-    margin-left: 20px;
-    margin-top: 10px;
-}
- .Section3 .box2 p {
-    text-align: center;
-}
-.Section3 .box2 h3 {
-    color: rgb(0, 206, 0);
-    text-align: center;
-    margin-top: 20px;
-}
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
 
+        /* Search Section */
+        .Section2 {
+            background-color: #0070cc;
+            padding: 50px 20px;
+            text-align: center;
+        }
 
-.Section3 .box3 {
-    border: 1px solid rgb(235, 235, 235);
-    width: 260px;
-    margin-left: 20px;
-    margin-top: 10px;
-}
- .Section3 .box3 p {
-    text-align: center;
-}
+        .Section2 h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: clamp(20px, 4vw, 32px);
+        }
 
-.Section3 .box3 h3 {
-    color: rgb(0, 206, 0);
-    text-align: center;
-    margin-top: 20px;
-}
-.Section3 button {
-    border: none;
-   margin-left: 50px;
-   font-weight: bold;
-   background-color: #B73439;
-   padding: 10px 50px;
-   border-radius: 4px;
-   margin-bottom: 10px;
-   cursor: pointer;
-}
+        /* Search Form */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
 
-.Section3 button:hover {
-   background-color: #752124;
- 
-}
+        form.example {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+        }
 
-.Section3 button a {
-  text-decoration: none;
-    color: white;
-}
+        form.example input {
+            flex: 1;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            background: #f1f1f1;
+            min-width: 0;
+        }
 
+        form.example button {
+            width: 60px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            padding: 10px;
+            background: rgb(2, 196, 2);
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
 
-.Section6 {
-  background-color: #23292F;
-  height: auto;
-}
+        form.example button:hover {
+            background: green;
+        }
 
-.Section6 .layout {
-  display: inline-block;
-}
+        /* Bikes Grid Section */
+        .Section3 {
+            padding: 60px 20px;
+            background-color: #f8f9fa;
+        }
 
-.Section6 .Section6-box1 {
-  padding-top: 20px;
-  margin-left:400px;
-  
-}
-.Section6 .Section6-box1 h3 {
-  color: white;
-  font-size: 15px;
-  margin-bottom: 7px;
-}
+        .bike-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.Section6  a {
-  
-  color: rgb(175, 175, 175);
-  font-size: 12px;
-  text-decoration: none;
-  
-}
-.Section6  p {
-  padding-bottom: 2px;
-}
-.Section6  a:hover {
-  text-decoration: underline;
-}
+        .bike-box {
+            background: white;
+            border: 1px solid rgb(235, 235, 235);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
 
-.Section6 .Section6-box2 {
- margin-left: 100px;
-}
-.Section6 .Section6-box2 h3 {
-  color: white;
-  font-size: 15px;
-  margin-bottom: 7px;
-}
+        .bike-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
 
+        .bike-image-container {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
 
+        .bike-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            display: block;
+        }
 
-.Section6 hr {
-  border: none;
-    height: 0.5px;
-   width: 55%;
-   margin-top: 70px;
-   margin-left: 24%;
-    background-color: rgb(110, 110, 110); 
-}
-.Section6 .copyright .line1 {
-  color: gray;
-  margin-top: 20px;
-  margin-left: 40%;
-  font-size: 10px;
-}
-.Section6 .copyright .line2 {
-  color: gray;
-  margin-left: 46%;
- margin-top: 5px;
-  font-size: 10px;
-}
-.Section6 .copyright .line3 {
-  color: gray;
-  margin-top: 10px;
-  margin-left: 35%;
-  font-size: 10px;
-}
+        .bike-info {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
+        .bike-brand {
+            color: #012D62;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .bike-model {
+            color: #012D62;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .bike-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .bike-info p {
+            margin-bottom: 6px;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #666;
+        }
+
+        .bike-info p b {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .bike-price {
+            color: rgb(0, 206, 0);
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .book-btn {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 0 auto 20px auto;
+            padding: 12px 20px;
+            background-color: #B73439;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: auto;
+        }
+
+        .book-btn:hover {
+            background-color: #752124;
+        }
+
+        /* Footer */
+        .Section6 {
+            background-color: #23292F;
+            padding: 50px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .footer-section a {
+            color: rgb(175, 175, 175);
+            font-size: 12px;
+            text-decoration: none;
+            display: block;
+            padding: 3px 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-divider {
+            border: none;
+            height: 0.5px;
+            background-color: rgb(110, 110, 110);
+            margin: 40px 0 20px 0;
+        }
+
+        .copyright {
+            text-align: center;
+            color: gray;
+            font-size: 10px;
+            line-height: 1.6;
+        }
+
+        .copyright p {
+            margin-bottom: 5px;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 968px) {
+            .header-nav {
+                flex-wrap: wrap;
+            }
+
+            .nav-container {
+                width: 100%;
+                order: 3;
+            }
+
+            ul {
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(248, 249, 250, 0.95);
+                padding: 10px 0;
+                border-top: 1px solid #e9ecef;
+            }
+
+            li {
+                width: 100%;
+            }
+
+            li a {
+                padding: 12px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .dropdown {
+                width: 100%;
+            }
+
+            .dropdown .dropbtn {
+                width: 100%;
+                justify-content: space-between;
+                padding: 12px 20px;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                box-shadow: none;
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+
+            .bike-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media screen and (max-width: 640px) {
+            .Section1 {
+                height: auto;
+                padding: 10px 0;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .logo {
+                margin-bottom: 10px;
+            }
+
+            .Section1 img {
+                width: 100px;
+                height: 55px;
+            }
+
+            .Section2 {
+                padding: 40px 15px;
+            }
+
+            .Section3 {
+                padding: 40px 15px;
+            }
+
+            .bike-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .bike-image-container {
+                height: 180px;
+                padding: 15px;
+            }
+
+            .bike-info {
+                padding: 15px;
+            }
+
+            .bike-specs {
+                grid-template-columns: 1fr;
+                gap: 6px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                text-align: center;
+            }
+
+            .copyright {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .Section2 h2 {
+                font-size: 20px;
+            }
+
+            .bike-info p {
+                font-size: 12px;
+            }
+
+            .bike-price {
+                font-size: 20px;
+            }
+
+            .book-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+
+            .bike-model {
+                font-size: 18px;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
     </style>
 </head>
 <body>
-    <div class="Section1">
-      <img src="../logo1.png" width="130px" height="70px">
-    
-        <ul>
-          <li><a class="active" href="../Project.html">Home</a></li>
-    
-          <div class="dropdown">
-            <button class="dropbtn"><a href="../Cars Main/Cars.html">Cars</a> 
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-                <a href="../Car Files and Images/audi.html">Audi</a>
-                <a href="../Car Files and Images/toyota.html">Toyota</a>
-                <a href="../Car Files and Images/suzuki.html">Suzuki</a>
-                <a href="../Car Files and Images/kia.html">Kia</a>
-                <a href="../Car Files and Images/mercedes.html">Mercedes</a>
-                <a href="../Car Files and Images/mg.html">Mg</a>
+    <div class="container">
+        <div class="Section1">
+            <div class="header-nav">
+                <div class="logo">
+                    <a href="../Project.html">
+                        <img src="../logo1.png" width="130px" height="70px" alt="AutoStop Logo">
+                    </a>
+                </div>
+
+                <div class="nav-container">
+                    <ul>
+                        <li><a class="active" href="../Project.html">Home</a></li>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="../Cars Main/Cars.html">Cars</a>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="../Car Files and Images/audi.html">Audi</a>
+                                <a href="../Car Files and Images/toyota.html">Toyota</a>
+                                <a href="../Car Files and Images/suzuki.html">Suzuki</a>
+                                <a href="../Car Files and Images/kia.html">Kia</a>
+                                <a href="../Car Files and Images/mercedes.html">Mercedes</a>
+                                <a href="../Car Files and Images/mg.html">Mg</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="">Bikes</a>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="SUZUKI-Bike.html">Suzuki</a>
+                                <a href="kawasaki.html">Kawasaki</a>
+                                <a href="honda-bike.html">Honda</a>
+                                <a href="Yamaha.html">Yamaha</a>
+                            </div>
+                        </div>
+                        
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                <a href="/AutoStore/Main.html">AutoStore</a>
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="../AutoStore/corolla.html">Toyota Corolla</a>
+                                <a href="../AutoStore/fortuner.html">Toyota Fortuner</a>
+                                <a href="../AutoStore/vitz.html">Toyota Vitz</a>
+                            </div>
+                        </div>
+                        
+                        <li><a href="../AboutUs.html">About Us</a></li>
+                    </ul>
+                </div>
             </div>
-          </div> 
-          <div class="dropdown">
-            <button class="dropbtn"><a href="">Bikes</a>
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="SUZUKI-Bike.html">Suzuki</a>
-              <a href="kawasaki.html">Kawasaki</a>
-              <a href="honda-bike.html">Honda</a>
-              <a href="Yamaha.html">Yamaha</a>
-            </div>
-          </div> 
-          <div class="dropdown">
-            <button class="dropbtn"><a href="/AutoStore/Main.html">AutoStore</a>
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="../AutoStore/corolla.html">Toyota Corolla</a>
-              <a href="../AutoStore/fortuner.html">Toyota Fortuner</a>
-              <a href="../AutoStore/vitz.html">Toyota Vitz</a>
-            </div>
-          </div> 
-          <li><a href="../AboutUs.html">About Us</a></li>
-          
-        </ul> 
         </div>
+
         <div class="Section2">
             <h2>Find New Bikes in Pakistan</h2>
-            <form class="example" action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search">
-                <button type="submit"><i class="fa fa-search"></i></button>
-              </form>
+            <div class="search-container">
+                <form class="example" action="/action_page.php">
+                    <input type="text" placeholder="Search.." name="search">
+                    <button type="submit"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
         </div>
 
         <div class="Section3">
-    
-           <div class="layout">
-            <div class="box"> 
-                
-                <img src="./Gallery-2/CB 150F.png" width="260px" height="200px">
-                <p><b>Year</b><br>2023</p>
-                <p><b>Model<br></b>CB 150F</p>
-                <p><b>Transmission<br></b>5-Speed Constant Mesh</p>
-                <p><b>Engine Displacement<br></b>149cc</p>
-                <h3>PKR 354,000</h3><br>
-                <button><a href="">Book Now</a></button>
-        
-            </div>
-        </div>
-        <div class="layout">
-            <div class="box2"> 
-               
-                <img src="./Gallery-2/CG 125.png" width="250px" height="200px">
-                <p><b>Year<br></b>2023</p>
-                <p><b>Model<br></b>CG 125</p>
-                <p><b>Transmission<br></b>4-speed Constant Mesh</p>
-                <p><b>Engine Displacement<br></b>125cc</p>
-                <h3>PKR 186,000</h3><br>
-                <button><a href="">Book Now</a></button>
-           
-            </div>
-            </div>
+            <div class="bike-grid">
+                <div class="bike-box">
+                    <div class="bike-image-container">
+                        <img src="./Gallery-2/CB 150F.png" alt="Honda CB 150F">
+                    </div>
+                    <div class="bike-info">
+                        <div class="bike-brand">HONDA</div>
+                        <div class="bike-model">CB 150F</div>
+                        <div class="bike-specs">
+                            <p><b>Year:</b> 2023</p>
+                            <p><b>Transmission:</b> 5-Speed Constant Mesh</p>
+                            <p><b>Engine Displacement:</b> 149cc</p>
+                            <p><b>Type:</b> Standard</p>
+                        </div>
+                        <div class="bike-price">PKR 354,000</div>
+                        <a href="" class="book-btn">Book Now</a>
+                    </div>
+                </div>
 
-            <div class="layout">
-                <div class="box3"> 
-                    
-                    <img src="./Gallery-2/CD 70.png" width="300px" height="200px">
-                    <p><b>Year<br></b>2023</p>
-                    <p><b>Model<br></b>CD 70</p>
-                    <p><b>Transmission<br></b>4-Speed Constant Mesh</p>
-                    <p><b>Engine Displacement<br></b>72cc</p>
-                    <h3>PKR 122,000</h3><br>
-                    <button><a href="">Book Now</a></button>
-               
+                <div class="bike-box">
+                    <div class="bike-image-container">
+                        <img src="./Gallery-2/CG 125.png" alt="Honda CG 125">
+                    </div>
+                    <div class="bike-info">
+                        <div class="bike-brand">HONDA</div>
+                        <div class="bike-model">CG 125</div>
+                        <div class="bike-specs">
+                            <p><b>Year:</b> 2023</p>
+                            <p><b>Transmission:</b> 4-speed Constant Mesh</p>
+                            <p><b>Engine Displacement:</b> 125cc</p>
+                            <p><b>Type:</b> Standard</p>
+                        </div>
+                        <div class="bike-price">PKR 186,000</div>
+                        <a href="" class="book-btn">Book Now</a>
+                    </div>
                 </div>
+
+                <div class="bike-box">
+                    <div class="bike-image-container">
+                        <img src="./Gallery-2/CD 70.png" alt="Honda CD 70">
+                    </div>
+                    <div class="bike-info">
+                        <div class="bike-brand">HONDA</div>
+                        <div class="bike-model">CD 70</div>
+                        <div class="bike-specs">
+                            <p><b>Year:</b> 2023</p>
+                            <p><b>Transmission:</b> 4-Speed Constant Mesh</p>
+                            <p><b>Engine Displacement:</b> 72cc</p>
+                            <p><b>Type:</b> Economy</p>
+                        </div>
+                        <div class="bike-price">PKR 122,000</div>
+                        <a href="" class="book-btn">Book Now</a>
+                    </div>
                 </div>
-      
+            </div>
         </div>
 
         <div class="Section6">
-  
-          <div class="layout">
-          <div class="Section6-box1"> 
-          <h3>Cars By Make</h3>
-          <a href="./Car Files and Images/kia.html"><p>Kia Cars</p></a>
-          <a href="./Car Files and Images/audi.html"><p>Audi Cars</p></a>
-          <a href="./Car Files and Images/mercedes.html"><p>Mercedes Cars</p></a>
-          <a href=""><p>Honda Cars</p></a>
-          <a href="./Car Files and Images/suzuki.html"><p>Suzuki Cars</p></a>
-          <a href="./Car Files and Images/mg.html"><p>MG Cars</p></a>
-          </div>
-          </div>
-          
-          <div class="layout">
-          <div class="Section6-box2"> 
-            <h3>Explore AutoStop</h3>
-            <a href=""><p>New Cars</p></a>
-            <a href=""><p>New Bikes</p></a>
-            <a href=""><p>Used Cars</p></a>
-            <a href=""><p>Used Bikes</p></a>
-            <a href=""><p>AutoParts & Accessories</p></a>
-            <a href=""><p>Cool Rides</p></a>
-            </div>
-            </div>
-          
-            <div class="layout">
-              <div class="Section6-box2"> 
-                <h3> AutoStop</h3>
-                <a href="AboutUs.html"><p>About AutoStop</p></a>
-                <a href=""><p>Our Products</p></a>
-                <a href=""><p>FAQs</p></a>
-                <a href=""><p>Advertise With Us</p></a>
-                <a href=""><p>Refunds & Returns</p></a>
-                <a href=""><p>Contact Us</p></a>
+            <div class="footer-content">
+                <div class="footer-grid">
+                    <div class="footer-section">
+                        <h3>Cars By Make</h3>
+                        <a href="./Car Files and Images/kia.html">Kia Cars</a>
+                        <a href="./Car Files and Images/audi.html">Audi Cars</a>
+                        <a href="./Car Files and Images/mercedes.html">Mercedes Cars</a>
+                        <a href="">Honda Cars</a>
+                        <a href="./Car Files and Images/suzuki.html">Suzuki Cars</a>
+                        <a href="./Car Files and Images/mg.html">MG Cars</a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Explore AutoStop</h3>
+                        <a href="">New Cars</a>
+                        <a href="">New Bikes</a>
+                        <a href="">Used Cars</a>
+                        <a href="">Used Bikes</a>
+                        <a href="">AutoParts & Accessories</a>
+                        <a href="">Cool Rides</a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>AutoStop</h3>
+                        <a href="AboutUs.html">About AutoStop</a>
+                        <a href="">Our Products</a>
+                        <a href="">FAQs</a>
+                        <a href="">Advertise With Us</a>
+                        <a href="">Refunds & Returns</a>
+                        <a href="">Contact Us</a>
+                    </div>
+
+                    <div class="footer-section">
+                        <h3>Cars By Category</h3>
+                        <a href="./Categorized Car Files/Family.html">Family Cars</a>
+                        <a href="./Categorized Car Files/SUV.html">SUV Cars</a>
+                        <a href="./Categorized Car Files/Small.html">Small Cars</a>
+                        <a href="">Low Priced Cars</a>
+                        <a href="">4x4 Cars</a>
+                        <a href="">1000cc Cars</a>
+                    </div>
                 </div>
+
+                <hr class="footer-divider">
+
+                <div class="copyright">
+                    <p>Copyright © 2003 - 2025 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
+                    <p>Terms of Service | Privacy Policy</p>
+                    <p>Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
                 </div>
-          
-                <div class="layout">
-                  <div class="Section6-box2"> 
-                    <h3>Cars By Category</h3>
-                    <a href="./Categorized Car Files/Family.html"><p>Family Cars</p></a>
-                    <a href="./Categorized Car Files/SUV.html"><p>SUV Cars</p></a>
-                    <a href="./Categorized Car Files/Small.html"><p>Small Cars</p></a>
-                    <a href=""><p>Low Priced Cars</p></a>
-                    <a href=""><p>4x4 Cars</p></a>
-                    <a href=""><p>1000cc Cars</p></a>
-                    </div>
-                    </div>
-          
-                    <hr>
-          
-                    <div class="copyright">
-                      <p class="line1">Copyright © 2003 - 2022 AutoStop (Pvt) Ltd. - All Rights Reserved.</p>
-                      <p class="line2">Terms of Service |  Privacy Policy</p>
-                      <p class="line3">Reproduction of material from any AutoStop pages without permission is strictly prohibited.</p>
-                    </div>
-          
-          </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
